@@ -15,8 +15,7 @@ html {
 }
 
 body {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-bottom: 64px;
 }
 
 body div[style] {
