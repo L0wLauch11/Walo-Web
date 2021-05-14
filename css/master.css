@@ -18,6 +18,11 @@ body {
   margin: 0px;
 }
 
+body div[style] {
+  opacity: 0%;
+  height: 0%;
+}
+
 .container {
   color: var(--c2);
   background-color: var(--c2);
