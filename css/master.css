@@ -15,12 +15,14 @@ html {
 }
 
 body {
-  margin: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 body div[style] {
   opacity: 0%;
   height: 0%;
+  left: 999px;
 }
 
 .container {
@@ -169,6 +171,10 @@ header nav ul li h1 {
 
 .info-container img {
   width: 45%;
+}
+
+#last-info-screenshot {
+  border-bottom: 3px solid #1D2025;
 }
 
 #rankings {
