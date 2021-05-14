@@ -1,0 +1,9 @@
+assets/credentials.ini
+.vscode/
+.htacess
+.ftpquota
+hostindex.html
+403.html
+404.html
+FIXED_OWNERSHIP_OK
+robots.txt
