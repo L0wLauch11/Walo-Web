@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
     <title>Walo</title>
-    <input type="text" value="walo.ga" id="server-address-input">
   </head>
 
   <body>
