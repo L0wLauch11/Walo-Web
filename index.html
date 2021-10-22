@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="shortcut icon" type="assets/walo-small.png" href="favicon.ico" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/master.css">
-    <title>Walo</title>
-  </head>
 
-  <body>
-    <header>
-        <nav>
-            <ul>
-            <li><h1>Walo</h1></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="leaderboards.php">Leaderboards</a></li>
-            <li><a target="_blank" href="https://discord.gg/3ZHhqeUG">Discord</a></li>
-            <li><a target="_blank" href="https://github.com/L0wLauch11">GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+<head>
+  <link rel="shortcut icon" type="assets/walo-small.png" href="favicon.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/master.css">
+  <title>Walo</title>
+</head>
+<!---->
 
-    <p id="next-walo">Nächster Walo Termin: Unbekannt</p>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <h1>Walo</h1>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leaderboards.php">Leaderboards</a></li>
+        <li><a target="_blank" href="https://discord.gg/3ZHhqeUG">Discord</a></li>
+        <li><a target="_blank" href="https://github.com/L0wLauch11">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="container">
-      <h1>Minecraft-Walo</h1>
-      <button id="server-address" onclick="copyServerAddress()">Server-Adresse: walo.ga</button>
-      <p>Walo ist eine eigene Version des beliebten Minecraft Projekts Varo.</p>
-      <p id="info-text">Wichtige Informationen</p>
+  <p id="next-walo">Nächster Walo Termin: Unbekannt</p>
 
-      <div class="info">
-        <ul>
-          <li>Der Server läuft auf der Minecraft Version 1.8</li>
-          <li>Eine Runde dauert im Durchschnitt 3 Stunden</li>
-          <li>Man scheidet auch aus, wenn man leftet und unter 5 Herzen hat</li>
-          <li>Meistens wird in 2er Teams gespielt</li>
-          <li>Termine werden immer vorher auf dem Discord angekündigt</li>
-        </ul>
+  <div class="container">
+    <h1>Minecraft-Walo</h1>
+    <button id="server-address" onclick="copyServerAddress()">Server-Adresse: walo.ga</button>
+    <p>Walo ist eine eigene Version des beliebten Minecraft Projekts Varo.</p>
+    <p id="info-text">Wichtige Informationen</p>
 
-        <div class="info-container">
-          <img src="assets/screenshot-info.png" alt="">
-          <p>Vor dem Spielstart werden die wichtigsten Informationen im Chat angezeigt</p>
-        </div>
+    <div class="info">
+      <ul>
+        <li>Der Server läuft auf der Minecraft Version 1.8</li>
+        <li>Eine Runde dauert im Durchschnitt 3 Stunden</li>
+        <li>Man scheidet auch aus, wenn man leftet und unter 5 Herzen hat</li>
+        <li>Meistens wird in 2er Teams gespielt</li>
+        <li>Termine werden immer vorher auf dem Discord angekündigt</li>
+      </ul>
 
-        <div class="info-container">
-          <p>Während des Spiels werden am Scoreboard Infos angezeigt</p>
-          <img src="assets/screenshot-scoreboard.png" alt="">
-        </div>
-
-        <div class="info-container">
-          <img src="assets/screenshot-mine.png" alt="">
-          <p>Das Ziel des Spiels ist es gute Sachen zu farmen...</p>
-        </div>
-
-        <div class="info-container" id="last-info-screenshot">
-          <p>... und am Ende alle auszuschalten</p>
-          <img src="assets/screenshot-armor.png" alt="">
-        </div>
+      <div class="info-container">
+        <img src="assets/screenshot-info.png" alt="">
+        <p>Vor dem Spielstart werden die wichtigsten Informationen im Chat angezeigt</p>
       </div>
 
-      <p id="info-text">Commands</p>
-      
-      <div class="info">
-        <ul>
-          <li><b>/walo stats [Spieler]</b> - Zeigt die Statistiken eines Spielers an</li>
-          <li><b>/walo scoreboard</b> - Deaktiviert bzw. aktiviert das Scoreboard</li>
-        </ul>
+      <div class="info-container">
+        <p>Während des Spiels werden am Scoreboard Infos angezeigt</p>
+        <img src="assets/screenshot-scoreboard.png" alt="">
       </div>
 
+      <div class="info-container">
+        <img src="assets/screenshot-mine.png" alt="">
+        <p>Das Ziel des Spiels ist es gute Sachen zu farmen...</p>
+      </div>
+
+      <div class="info-container" id="last-info-screenshot">
+        <p>... und am Ende alle auszuschalten</p>
+        <img src="assets/screenshot-armor.png" alt="">
+      </div>
     </div>
 
-    <input type="text" value="walo.ga" id="server-address-input" style="opacity: 0%;">
+    <p id="info-text">Commands</p>
 
-    <script type="text/javascript">
-        function copyServerAddress()
-        {
-        /* Get the text field */
-        var copyText = document.getElementById("server-address-input");
+    <div class="info">
+      <ul>
+        <li><b>/walo stats [Spieler]</b> - Zeigt die Statistiken eines Spielers an</li>
+        <li><b>/walo scoreboard</b> - Deaktiviert bzw. aktiviert das Scoreboard</li>
+      </ul>
+    </div>
 
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  </div>
 
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-        }
-    </script>
-  </body>
+  <input type="text" value="walo.ga" id="server-address-input" style="opacity: 0%;">
+
+  <script type="text/javascript">
+    function copyServerAddress() {
+      /* Get the text field */
+      var copyText = document.getElementById("server-address-input");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+    }
+  </script>
+</body>
+
 </html>
