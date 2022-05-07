@@ -54,9 +54,22 @@
       // generate kill leaderboard
 
       echo "<div id='rankings'>";
+      $i = 0;
       while ($row = $result->fetch_assoc()) {
+        $div_darker = "";
+        $div_darker_end = "";
+
+        if ($i % 2 == 0) {
+          $div_darker = "<div class='leaderboard-darker'>";
+          $div_darker_end = "</div>";
+        }
+        $i++;
+
         if ($row["KILLS"] > 0) {
-          echo "<div class='row'><div class='name'>" . $row["NAME"] . "</div><div class='score'>" . $row["KILLS"] . "</div><div class='kills-text'>Kills</div></div>";
+          $name = $row['NAME'];
+          $kills = $row['KILLS'];
+
+          echo "<div class='row'>$div_darker<div class='name'>$name</div><div class='score'>$kills</div><div class='kills-text'>Kills</div>$div_darker_end</div>";
 
           $entries = true;
         }

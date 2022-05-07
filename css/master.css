@@ -21,12 +21,6 @@ body {
   margin-bottom: 64px;
 }
 
-body div[style] {
-  opacity: 0%;
-  height: 0%;
-  left: 999px;
-}
-
 .container {
   color: var(--c2);
   background-color: var(--c2);
@@ -139,6 +133,7 @@ header nav ul li h1 {
   font-weight: bold;
   margin-top: 64px;
   margin-bottom: 32px;
+  text-align: left;
 }
 
 .info {
@@ -148,8 +143,26 @@ header nav ul li h1 {
 
 .info ul {
   color: var(--c4);
-  font-size: 18px;
-  margin-bottom: 64px;
+  font-size: 20px;
+  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  width: 100%;
+  height: fit-content;
+  padding-left: 0px;
+}
+
+.info ul li {
+  background-color: var(--c1);
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0px 0px 5px black;
+}
+
+.info ul li img {
+  width: 24px;
+  float: left;
 }
 
 .info img {
@@ -196,6 +209,8 @@ header nav ul li h1 {
   font-size: calc(8px + 1.5vw);
   vertical-align: middle;
   color: var(--c4);
+  height: auto;
+  padding: 16px 0px;
 }
 
 .name {
@@ -214,6 +229,12 @@ header nav ul li h1 {
   position: relative;
   display: inline-block;
   width: 40%;
+}
+
+.leaderboard-darker {
+  background-color: rgba(29, 32, 37, 0.4);
+  border-radius: 8px;
+  padding: 16px 0px;
 }
 
 .row:nth-child(1) {
