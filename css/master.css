@@ -21,6 +21,10 @@ body {
   margin-bottom: 64px;
 }
 
+a {
+  color: #FFB300;
+}
+
 .container {
   color: var(--c2);
   background-color: var(--c2);
@@ -98,17 +102,27 @@ header nav ul li h1 {
   vertical-align: middle;
 }
 
+header nav ul li img {
+  width: 24px;
+  vertical-align: text-bottom;
+  padding-left: 8px;
+}
+
 #server-address {
   border: 0px;
   padding: 8px;
   box-shadow: 0px 0px 5px black;
   margin-bottom: 32px;
   margin-top: 0px;
-  font-weight: bold;
-  color: #FFB300;
   font-size: 24px;
+  color: var(--c4);
   transition: 0.3s;
   background-color: var(--c1);
+}
+
+#server-address-text {
+  color: #FFB300;
+  font-size: 24px;
 }
 
 #server-address:hover {
@@ -117,7 +131,7 @@ header nav ul li h1 {
   cursor: pointer;
 }
 
-#next-walo {
+#heading {
   padding-top: 96px;
   margin-bottom: 32px;
 
@@ -134,6 +148,14 @@ header nav ul li h1 {
   margin-top: 64px;
   margin-bottom: 32px;
   text-align: left;
+}
+
+#web-source {
+  font-size: 16px;
+  text-align: left;
+  border-top: 3px solid #1D2025;
+  padding-top: 24px;
+  margin-top: 64px;
 }
 
 .info {
