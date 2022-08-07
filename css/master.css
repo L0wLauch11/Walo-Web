@@ -223,18 +223,6 @@ header nav ul li img {
   margin-top: 0px;
 }
 
-.row {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  font-size: calc(8px + 1.5vw);
-  vertical-align: middle;
-  color: var(--c4);
-  height: auto;
-  padding: 16px 0px;
-}
-
 .name {
   position: relative;
   display: inline-block;
@@ -256,28 +244,37 @@ header nav ul li img {
 .leaderboard-darker {
   background-color: rgba(29, 32, 37, 0.4);
   border-radius: 8px;
-  padding: 16px 0px;
+  padding: 10px 0px;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  color: var(--c4);
+  height: auto;
+  padding: 8px 0px;
 }
 
 .row:nth-child(1) {
   color: #EBCB8B;
-  text-shadow: rgb(124, 61, 41) 4px 4px;
+  text-shadow: rgb(124, 61, 41) 3px 3px;
   font-weight: bolder;
-  font-size:calc(32px + 1.5vw);
+  font-size: 40px;
 }
 
 .row:nth-child(2) {
   color: #D08770;
-  text-shadow: rgb(131, 53, 61) 3px 3px;
+  text-shadow: rgb(131, 53, 61) 2px 2px;
   font-weight: bold;
-  font-size:calc(20px + 1.5vw);
+  font-size: 32px;
 }
 
 .row:nth-child(3) {
   color: #BF616A;
-  text-shadow: rgb(130, 56, 65) 2px 2px;
+  text-shadow: rgb(130, 56, 65) 1px 1px;
   font-weight: bold;
-  font-size:calc(12px + 1.5vw);
+  font-size: 24px;
 }
 
 #no-data {
