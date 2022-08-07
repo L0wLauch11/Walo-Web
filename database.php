@@ -38,16 +38,20 @@ switch ($operation) {
         break;
 
     case 'createplayer':
-        try {
-            $sql_get_kills = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
-            $result = $conn->query($sql_get_kills);
-        } catch (Exception $e) {
-            // This exception means that the player doesn't exist yet
+        $sql_get_kills = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
 
-            $sql = "INSERT INTO walo (UUID, NAME, KILLS) VALUES ('$minecraft_uuid', '$minecraft_name', 0)";
-            $conn->query($sql);
+        $result = $conn->query($sql_get_kills);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $kills = $row['KILLS'];
+            }
         }
 
+        if (!isset($kills)) {
+            $sql = "INSERT INTO walo (UUID, NAME, KILLS) VALUES ('$minecraft_uuid', '$minecraft_name', 0)";
+            $result = $conn->query($sql);
+        }
+        
         break;
 
     case 'addkill':
