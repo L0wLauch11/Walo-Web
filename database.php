@@ -35,6 +35,8 @@ switch ($operation) {
         $sql = 'CREATE TABLE IF NOT EXISTS walo (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT(100))';
         $conn->query($sql);
 
+        echo 'Walo table created';
+
         break;
 
     case 'createplayer':
@@ -51,6 +53,8 @@ switch ($operation) {
             $sql = "INSERT INTO walo (UUID, NAME, KILLS) VALUES ('$minecraft_uuid', '$minecraft_name', 0)";
             $result = $conn->query($sql);
         }
+
+        echo 'Player created successfully';
         
         break;
 
@@ -69,9 +73,7 @@ switch ($operation) {
         $sql = "UPDATE walo SET KILLS=$new_kills WHERE UUID='$minecraft_uuid'";
         $conn->query($sql);
 
-        // Sort table by highest kill amount
-        $sql = "ALTER TABLE walo ORDER BY KILLS DESC";
-        $conn->query($sql);
+        echo 'Kill added successfully';
 
         break;
     
@@ -89,6 +91,25 @@ switch ($operation) {
         echo $kills;
 
         break;
+
+        case 'addwin':
+            $kills = 0;
+            $sql_get_kills = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
+    
+            $result = $conn->query($sql_get_kills);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $wins = $row['WINS'];
+                }
+            }
+    
+            $new_wins = $wins + 1;
+            $sql = "UPDATE walo SET WINS=$new_wins WHERE UUID='$minecraft_uuid'";
+            $conn->query($sql);
+
+            echo 'Win added successfully';
+
+            break;
 
     default:
         echo 'Not a valid operation';

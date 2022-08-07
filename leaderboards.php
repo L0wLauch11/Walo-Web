@@ -20,8 +20,6 @@
     <p id="heading">Leaderboards</p>
 
     <div class="container">
-        <h1>Kills:</h1>
-
         <?php
         $ini_array = parse_ini_file("assets/credentials.ini");
 
@@ -37,14 +35,67 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        /// generate wins leaderboard
+        
+        // Sort table by highest win amount
+        $sql = "ALTER TABLE walo ORDER BY WINS DESC";
+        $conn->query($sql);
+
         $sql = "SELECT * FROM walo";
         $result = $conn->query($sql);
         $num = 0;
         $entries = false;
 
+        echo '<h1>Wins:</h1>';
         if ($result->num_rows > 0) {
-            // generate kill leaderboard
+           
+            
+            echo "<div id='rankings'>";
+            $i = 0;
+            while ($row = $result->fetch_assoc()) {
+                $div_darker = "";
+                $div_darker_end = "";
 
+                if ($i % 2 == 0) {
+                    $div_darker = "<div class='leaderboard-darker'>";
+                    $div_darker_end = "</div>";
+                }
+                $i++;
+
+                if ($row["WINS"] > 0) {
+                    $name = $row['NAME'];
+                    $wins = $row['WINS'];
+
+                    $wins_text = "Wins";
+                    if ($wins == 1) {
+                        $wins_text = "Win";
+                    }
+
+                    echo "<div class='row'>$div_darker<div class='name'>$name</div><div class='score'>$wins</div><div class='kills-text'>$wins_text</div>$div_darker_end</div>";
+
+                    $entries = true;
+                }
+            }
+            echo "</div><br><br>";
+        }
+
+        if ($entries == false) {
+            echo "<p id='no-data'>Noch keine Einträge</p><br>";
+        }
+
+        /// generate wins leaderboard
+        
+        // Sort table by highest kill amount
+        $sql = "ALTER TABLE walo ORDER BY KILLS DESC";
+        $conn->query($sql);
+
+        $sql = "SELECT * FROM walo";
+        $result = $conn->query($sql);
+        $num = 0;
+        $entries = false;
+
+        echo '<h1>Kills:</h1>';
+        if ($result->num_rows > 0) {
             echo "<div id='rankings'>";
             $i = 0;
             while ($row = $result->fetch_assoc()) {
@@ -61,7 +112,12 @@
                     $name = $row['NAME'];
                     $kills = $row['KILLS'];
 
-                    echo "<div class='row'>$div_darker<div class='name'>$name</div><div class='score'>$kills</div><div class='kills-text'>Kills</div>$div_darker_end</div>";
+                    $kills_text = "Kills";
+                    if ($kills == 1) {
+                        $kills_text = "Kill";
+                    }
+
+                    echo "<div class='row'>$div_darker<div class='name'>$name</div><div class='score'>$kills</div><div class='kills-text'>$kills_text</div>$div_darker_end</div>";
 
                     $entries = true;
                 }
