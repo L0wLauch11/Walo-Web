@@ -36,6 +36,22 @@ function subtract_value($conn, $minecraft_uuid, $key, $value_subtract) {
     echo "$key subtracted successfully";
 }
 
+function get_value($conn, $minecraft_uuid, $key) {
+    $value = 0;
+    $sql_get_value = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
+
+    $result = $conn->query($sql_get_value);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $value = $row[$key];
+        }
+    }
+
+    return $value;
+}
+
+
+
 $minecraft_uuid = $_GET['uuid'];
 $minecraft_name = $_GET['name'];
 $security_string = $_GET['secret'];
@@ -60,16 +76,15 @@ $dbname = $ini_array['dbname'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-$sql = '';
 switch ($operation) {
     case 'inittable':
-        $sql = 'CREATE TABLE IF NOT EXISTS walo (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT(100))';
+        $sql = 'CREATE TABLE IF NOT EXISTS walo (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT(100), WINS INT(100), PLAYCOUNT INT(100))';
         $conn->query($sql);
 
         echo 'Walo table created';
@@ -96,17 +111,7 @@ switch ($operation) {
         break;
 
     case 'getkills':
-        $kills = 0;
-        $sql_get_kills = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
-
-        $result = $conn->query($sql_get_kills);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $kills = $row['KILLS'];
-            }
-        }
-
-        echo $kills;
+        echo get_value($conn, $minecraft_uuid, "KILLS");
 
         break;
 
@@ -130,14 +135,21 @@ switch ($operation) {
 
         break;
 
+    case 'removewin':
+        subtract_value($conn, $minecraft_uuid, "WINS", 1);
+
+        break;
+
+    case 'removekill':
+        subtract_value($conn, $minecraft_uuid, "KILLS", 1);
+
+        break;
+    
+
     default:
         echo 'Not a valid operation';
     
         break;
-}
-
-if ($sql == '') {
-    return;
 }
 
 $conn->close();
