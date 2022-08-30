@@ -37,7 +37,7 @@
                     }
 
                     $filename = basename($file);
-                    print "<li><a href='walo-plugin/$filename'>$filename</a>";
+                    print "<li><a href='walo-plugin/$filename'><img src='assets/plugin-source.png' alt=''>$filename</a>";
 
                     if (file_exists("walo-plugin/$filename.html"))
                         include "walo-plugin/$filename.html";
@@ -50,7 +50,7 @@
                 ?>
             </ul>
         </div>
-
+                
         <p id="web-source">Plugin Quellcode: <a
                 href="https://github.com/L0wLauch11/Walo">https://github.com/L0wLauch11/Walo</a></p>
     </div>
