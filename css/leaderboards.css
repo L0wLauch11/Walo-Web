@@ -1,0 +1,104 @@
+#rankings {
+    width: 100%;
+    border: solid;
+}
+
+#rankings tr {
+    padding-bottom: 4px;
+    border-radius: 2px;
+}
+
+.leaderboard-column,
+.leaderboard-stat {
+    text-align: left;
+    padding: 4px 8px;
+}
+
+.leaderboard-column {
+    color: white;
+}
+
+.leaderboard-stat {
+    color: var(--c4);
+}
+
+.row-darker td {
+    background-color: var(--c1);
+    border: solid;
+    border-collapse: collapse;
+    border-color: var(--c1);
+    border-radius: 4px;
+    border-width: 0px;
+}
+
+.row-darker .leftmost {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.row-darker .center {
+    border-radius: 0px;
+}
+
+.row-darker .rightmost {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+#first-place {
+    color: #BF616A;
+    font-size: 22px;
+}
+
+#second-place {
+    color: #D08770;
+    font-size: 20px;
+}
+
+#third-place {
+    color: #EBCB8B;
+    font-size: 18px;
+}
+
+.sort-by-selector {
+    text-align: left;
+    color: var(--c4);
+}
+
+.sort-by-selector select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: inherit;
+    line-height: inherit;
+    border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+    color: var(--c4);
+    background-color: #012C51;
+    box-shadow: 0px 0px 6px var(--c1);
+}
+
+.button {
+    border: solid;
+    border-collapse: collapse;
+    border-color: var(--c1);
+    border-width: 0px;
+    color: var(--c4);
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: 0.3s;
+    font-family: inherit;
+    font-size: 16px;
+    
+}
+
+.button:hover {
+    background-color: var(--c5);
+}

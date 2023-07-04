@@ -27,8 +27,10 @@
 
                 $files = glob('walo-plugin/*.jar');
                 usort($files, function($a, $b) {
-                    return filemtime($b) - filemtime($a);
+                    return filemtime($a) - filemtime($b);
                 });
+
+                $files = array_reverse($files);
                 
                 $counter = 0;
                 foreach($files as $file) {
