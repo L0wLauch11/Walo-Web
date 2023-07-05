@@ -15,25 +15,7 @@ function add_value($conn, $minecraft_uuid, $key, $value_incerement) {
     $sql = "UPDATE walo SET $key=$new_value WHERE UUID='$minecraft_uuid'";
     $conn->query($sql);
 
-    echo "$key added successfully";
-}
-
-function subtract_value($conn, $minecraft_uuid, $key, $value_subtract) {
-    $value = 0;
-    $sql_get_key = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
-
-    $result = $conn->query($sql_get_key);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $value = $row[$key];
-        }
-    }
-
-    $new_value = $value - $value_subtract;
-    $sql = "UPDATE walo SET $key=$new_value WHERE UUID='$minecraft_uuid'";
-    $conn->query($sql);
-
-    echo "$key subtracted successfully";
+    echo "$key is now $new_value";
 }
 
 function get_value($conn, $minecraft_uuid, $key) {
@@ -131,17 +113,17 @@ switch ($operation) {
         break;
 
     case 'removeplaycount':
-        subtract_value($conn, $minecraft_uuid, "PLAYCOUNT", 1);
+        add_value($conn, $minecraft_uuid, "PLAYCOUNT", -1);
 
         break;
 
     case 'removewin':
-        subtract_value($conn, $minecraft_uuid, "WINS", 1);
+        add_value($conn, $minecraft_uuid, "WINS", -1);
 
         break;
 
     case 'removekill':
-        subtract_value($conn, $minecraft_uuid, "KILLS", 1);
+        add_value($conn, $minecraft_uuid, "KILLS", -1);
 
         break;
     
