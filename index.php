@@ -17,7 +17,7 @@
         ?>
     </header>
 
-    <p id="heading">Nächster Walo Termin: Unbekannt</p>
+    <p id="heading">Über das Projekt</p>
 
     <div class="container">
         <h1>Minecraft-Walo</h1>
@@ -53,7 +53,7 @@
 
                 <li>
                     <img src="assets/calendar.png" alt="calendar">
-                    <b>Termine</b>: zuerst auf Discord
+                    <b>Termine</b>: auf Discord
                 </li>
             </ul>
 

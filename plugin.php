@@ -20,6 +20,7 @@
     <p id="heading">Walo Minecraft-Plugin</p>
 
     <div class="container">
+        <p style="margin-top: 24px;">Dies ist das Plugin was für das Projekt verwendet wird. Es funktioniert unter den Minecraft Versionen 1.8.* und benötigt Spigot oder Paper.</p>
         <p id="info-text">Neuste Version:</p>
         <div class="info">
             <ul>
