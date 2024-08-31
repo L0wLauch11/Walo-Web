@@ -46,6 +46,7 @@ $security_string = $_GET['secret'];
 $operation = $_GET['operation'];
 
 if (!isset($minecraft_uuid) || !isset($minecraft_name) || !isset($security_string) || !isset($operation)) {
+    echo 'uuid, name, secret or operation is missing';
     return;
 }
 
