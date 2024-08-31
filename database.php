@@ -50,8 +50,8 @@ if (!isset($minecraft_uuid) || !isset($minecraft_name) || !isset($security_strin
     return;
 }
 
-if ($security_string != file_get_contents('assets/secrets/database_access_security_string.txt')) {
-    echo 'Wrong security string';
+if ($security_string != file_get_contents('assets/secrets/database_token.txt')) {
+    echo 'Wrong database token';
     return;
 }
 
