@@ -13,7 +13,7 @@
 <body>
     <header>
         <?php
-        $root = $_SERVER["DOCUMENT_ROOT"];
+        $root = dirname(__FILE__);
         include "$root/navigation.html";
         ?>
     </header>
@@ -36,7 +36,7 @@
                     <option value="WINS" <?php if ($sort == "WINS") {echo 'selected';} ?>>Wins</option>
                     <option value="KILLS"<?php if ($sort == "KILLS") {echo 'selected';} ?>>Kills</option>
                     <option value="PLAYCOUNT" <?php if ($sort == "PLAYCOUNT") {echo 'selected';} ?>>Plays</option>
-                </select> ▼
+                </select>
                 <br><br>
             </div>
         </form>
@@ -58,14 +58,15 @@
 
             // If entries exist
             if ($result->num_rows > 0) {
-                echo "<table cellspacing='0' cellpadding='0' id='rankings'>";
-
-                echo "<tr class='leaderboard-row'>";
-                echo "<th class='leaderboard-column'>Name</th>";
-                echo "<th class='leaderboard-column'>Wins</th>";
-                echo "<th class='leaderboard-column'>Kills</th>";
-                echo "<th class='leaderboard-column'>Plays</th>";
-                echo "</tr>";
+                echo <<<HTML
+                    <table cellspacing='0' cellpadding='0' id='rankings'>
+                        <tr class='leaderboard-row'>
+                        <th class='leaderboard-column'>Name</th>
+                        <th class='leaderboard-column'>Wins</th>
+                        <th class='leaderboard-column'>Kills</th>
+                        <th class='leaderboard-column'>Plays</th>
+                    </tr>
+                HTML;
 
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {

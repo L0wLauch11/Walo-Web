@@ -12,24 +12,32 @@
 <body>
     <header>
         <?php
-        $root = $_SERVER["DOCUMENT_ROOT"];
+        $root = dirname(__FILE__);
         include "$root/navigation.html";
+
+        $server_address = "walo.mine.bz";
         ?>
     </header>
 
     <p id="heading">Über das Projekt</p>
 
     <div class="container">
-        <h1>Minecraft-Walo</h1>
-        <button id="server-address" onclick="copyServerAddress()">
-            Server-Adresse: <span id="server-address-text">mc.walo.gay</span>
-            <img src="assets/icon-copy.png" alt="copy" style="width: 16px;">
-        </button>
-        <p>Walo ist eine eigene Version des beliebten Minecraft Projekts Varo.</p>
+        <div class="brief">
+            <h1>Minecraft-Walo</h1>
+            <button id="server-address" onclick="copyServerAddress()">
+                Server-Adresse: <span id="server-address-text"><?= $server_address ?></span>
+                <img src="assets/icon-copy.png" alt="copy" style="width: 16px;">
+            </button>
+            <p>In Walo bildest du Teams und beweist dich gegen Andere im PVP-Kampf.</p>
+        </div>
+
+        <div class="spacer-big"></div>
+        <div class="seperator"></div>
 
         <div class="info">
             <ul>
-                <p id="info-text">Wichtige Informationen</p>
+                <p class="info-text">Informationen</p>
+                <div class="spacer"></div>
 
                 <li>
                     <img src="assets/mc-logo-minimal.png" alt="mc-logo">
@@ -38,12 +46,12 @@
 
                 <li>
                     <img src="assets/clock.png" alt="clock">
-                    <b>Spieldauer</b>: ~3h
+                    <b>Spieldauer</b>: zirka 3 Stunden
                 </li>
 
                 <li>
                     <img src="assets/team.png" alt="people">
-                    <b>Teamgröße</b>: 2 - 4
+                    <b>Spieler</b>: bis zu 50
                 </li>
 
                 <li>
@@ -51,9 +59,30 @@
                     <b>Combat-Logging</b>: man wird automatisch gebannt
                 </li>
 
-                <li>
+                <!-- <li>
                     <img src="assets/calendar.png" alt="calendar">
                     <b>Termine</b>: auf Discord
+                </li> -->
+            </ul>
+
+            <div class="spacer"></div>
+            <div class="seperator"></div>
+
+            <ul class="list-forbidden-items">
+                <p class="info-text">Verbotene Items</p>
+                <div class="spacer-small"></div>
+
+                <p class="subtext">Folgende Items sind verboten und es ist <b>NICHT</b> möglich sie herzustellen:</p>
+                <div class="spacer-small"></div>
+
+                <li>
+                    <img class="mc-item" src="assets/mc/golden_apple.png" alt="">
+                    <span><b>Verzauberter goldener Äpfel</b></span>
+                </li>
+
+                <li>
+                    <img class="mc-item" src="assets/mc/strength_potion.png" alt="">
+                    <span><b>Trank der Stärke</b></span>
                 </li>
             </ul>
 
@@ -78,7 +107,9 @@
             </div>
         </div>
 
-        <p id="info-text">Commands</p>
+        <div class="seperator"></div>
+
+        <p class="info-text">Commands</p>
 
         <div class="info">
             <ul>
@@ -87,12 +118,14 @@
             </ul>
         </div>
 
+        <div class="seperator"></div>
+
         <p id="web-source">Website Quellcode: <a
                 href="https://github.com/L0wLauch11/Walo-Web">https://github.com/L0wLauch11/Walo-Web</a></p>
 
     </div>
 
-    <input type="text" value="walo.ga" id="server-address-input" style="opacity: 0%;">
+    <input type="text" value="<?= $server_address ?>" id="server-address-input" style="opacity: 0%;">
 
     <script type="text/javascript">
         function copyServerAddress() {

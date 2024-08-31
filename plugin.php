@@ -12,7 +12,7 @@
 <body>
     <header>
         <?php
-        $root = $_SERVER["DOCUMENT_ROOT"];
+        $root = dirname(__FILE__);
         include "$root/navigation.html";
         ?>
     </header>
@@ -53,6 +53,8 @@
                 ?>
             </ul>
         </div>
+
+        <div class="seperator"></div>
                 
         <p id="web-source">Plugin Quellcode: <a
                 href="https://github.com/L0wLauch11/Walo">https://github.com/L0wLauch11/Walo</a></p>

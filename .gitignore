@@ -1,6 +1,4 @@
-assets/secrets/
 .vscode/
-.htacess
 .ftpquota
 hostindex.html
 403.html

@@ -1,5 +1,11 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+$credentials = parse_ini_file("assets/secrets/credentials.ini");
+
 function add_value($conn, $minecraft_uuid, $key, $value_incerement) {
     $value = 0;
     $sql_get_key = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
@@ -40,7 +46,6 @@ $security_string = $_GET['secret'];
 $operation = $_GET['operation'];
 
 if (!isset($minecraft_uuid) || !isset($minecraft_name) || !isset($security_string) || !isset($operation)) {
-    echo 'Please make sure you input a minecraft player uuid the security string and an operation';
     return;
 }
 
@@ -49,12 +54,10 @@ if ($security_string != file_get_contents('assets/secrets/database_access_securi
     return;
 }
 
-$ini_array = parse_ini_file("assets/secrets/credentials.ini");
-
-$servername = $ini_array['servername'];
-$username = $ini_array['username'];
-$password = $ini_array['password'];
-$dbname = $ini_array['dbname'];
+$servername = $credentials['servername'];
+$username = $credentials['username'];
+$password = $credentials['password'];
+$dbname = $credentials['dbname'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -62,6 +65,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+$value = 1;
+if (isset($_GET['value'])) {
+    $value = $_GET['value'];
 }
 
 switch ($operation) {
@@ -98,32 +106,32 @@ switch ($operation) {
         break;
 
     case 'addkill':
-        add_value($conn, $minecraft_uuid, "KILLS", 1);
+        add_value($conn, $minecraft_uuid, "KILLS", $value);
 
     break;
 
     case 'addwin':
-        add_value($conn, $minecraft_uuid, "WINS", 1);
+        add_value($conn, $minecraft_uuid, "WINS", $value);
 
         break;
 
     case 'addplaycount':
-        add_value($conn, $minecraft_uuid, "PLAYCOUNT", 1);
+        add_value($conn, $minecraft_uuid, "PLAYCOUNT", $value);
 
         break;
 
     case 'removeplaycount':
-        add_value($conn, $minecraft_uuid, "PLAYCOUNT", -1);
+        add_value($conn, $minecraft_uuid, "PLAYCOUNT", -$value);
 
         break;
 
     case 'removewin':
-        add_value($conn, $minecraft_uuid, "WINS", -1);
+        add_value($conn, $minecraft_uuid, "WINS", -$value);
 
         break;
 
     case 'removekill':
-        add_value($conn, $minecraft_uuid, "KILLS", -1);
+        add_value($conn, $minecraft_uuid, "KILLS", -$value);
 
         break;
     
