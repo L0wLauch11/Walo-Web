@@ -20,7 +20,9 @@
 }
 
 .documentation-side-nav ul li {
-    font-size: 18px;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-family: monospace;
 }
 
 .documentation-content {
@@ -35,9 +37,20 @@
 }
 
 ul {
+    padding-left: 24px;
     font-size: 14px;
-    margin-top: 0px;
     display: inline-block;
+    margin-top: 0;
+    list-style-type: none;
+}
+
+ul li {
+    text-indent: -5px;
+}
+
+ul li:before {
+    content: "- ";
+    text-indent: -5px;
 }
 
 body {
@@ -50,21 +63,45 @@ h1 {
 }
 
 h2 {
+    counter-reset: h3counter;
     font-size: 18px;
 }
 
 h3 {
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 16px;
+    counter-increment: h3counter;
+}
+
+h4 {
+    font-size: 14px;
+    counter-increment: h4counter;
 }
 
 h2:before {
     content: counter(h2counter) ".\0000a0\0000a0";
     counter-increment: h2counter;
-    counter-reset: h3counter;
 }
 
 h3:before {
     content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
-    counter-increment: h3counter;
+}
+
+h4:before {
+    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
+}
+
+.code, .code-inline {
+    margin-left: 16px;
+    background-color: var(--c2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    line-height: 1.4;
+    font-family: monospace;
+    font-size: 12px !important;
+}
+
+.code-inline {
+    margin-left: 0px;
+    display: inline-block;
 }

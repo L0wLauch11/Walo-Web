@@ -33,11 +33,10 @@
             <div class="sort-by-selector">
                 <label for="sort-by">Sortieren nach:&nbsp;&nbsp;</label>
                 <select onchange='this.form.submit()' name="sort" id="sort-by">
-                    <option value="WINS" <?php if ($sort == "WINS") {echo 'selected';} ?>>Wins</option>
-                    <option value="KILLS"<?php if ($sort == "KILLS") {echo 'selected';} ?>>Kills</option>
-                    <option value="PLAYCOUNT" <?php if ($sort == "PLAYCOUNT") {echo 'selected';} ?>>Plays</option>
+                    <option value="WINS" <?= $sort == "WINS" ? 'selected' : ''; ?>>Wins</option>
+                    <option value="KILLS" <?= $sort == "KILLS" ? 'selected' : ''; ?>>Kills</option>
+                    <option value="PLAYCOUNT" <?= $sort == "PLAYCOUNT" ? 'selected' : ''; ?>>Plays</option>
                 </select>
-                <br><br>
             </div>
         </form>
         <br>
@@ -96,12 +95,14 @@
                         continue;
                     }
 
-                    echo "<tr $darker>";
-                    echo "<td $placement class='leaderboard-stat leftmost'>$name</td>";
-                    echo "<td $placement class='leaderboard-stat center'>$wins</td>";
-                    echo "<td $placement class='leaderboard-stat center'>$kills</td>";
-                    echo "<td $placement class='leaderboard-stat rightmost'>$playcount</td>";
-                    echo "</tr>";
+                    echo "
+                        <tr $darker>
+                            <td $placement class='leaderboard-stat leftmost'>$name</td>
+                            <td $placement class='leaderboard-stat center'>$wins</td>
+                            <td $placement class='leaderboard-stat center'>$kills</td>
+                            <td $placement class='leaderboard-stat rightmost'>$playcount</td>
+                        </tr>
+                    ";
                 }
                 echo "</table>";
 

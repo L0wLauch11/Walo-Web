@@ -29,7 +29,7 @@
 
             <?php foreach ($articles as $article) { ?>
                 <li>
-                    <a href="<?= '/documentation/?article='.$article; ?>">
+                    <a href="<?= "/documentation/?article=$article"; ?>">
                         <?= ucfirst(
                                 str_replace('.php', '', 
                                 str_replace('-', ' ', 
@@ -47,6 +47,8 @@
         <?php 
         if (isset($_GET['article'])) {
             include $articlesFolder.'/'.$_GET['article'];
+        } else {
+            include $articlesFolder.'/'.$articles[0];
         }
         ?>
     </main>
