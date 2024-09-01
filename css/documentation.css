@@ -72,6 +72,11 @@ h1, h2, h3, h4 {
     margin: 4px;
     text-decoration: none;
     display: block;
+    color: var(--c3);
+}
+
+.side-nav-subheading:hover {
+    text-decoration: underline;
 }
 
 .side-nav-subheading-h1 {
@@ -142,6 +147,10 @@ h3:before {
 
 h4:before {
     content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
+}
+
+.header-counter-reset {
+    counter-reset: h2counter;
 }
 
 .code, .code-inline {

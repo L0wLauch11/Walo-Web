@@ -31,17 +31,12 @@
             ?>
 
             <?php foreach ($articles as $article) { ?>
+                <div class="header-counter-reset"></div>
                 <li>
                     <a href="<?= "/documentation/?article=$article"; ?>">
                         <?php
                         // related - https://stackoverflow.com/questions/14648442/domdocumentloadhtml-warning-htmlparseentityref-no-name-in-entity
                         libxml_use_internal_errors(true);
-
-                        $currentFragment = '';
-                        if (isset($_GET['fragment'])) {
-                            echo $currentFragment;
-                            $currentFragment = $_GET['fragment'];
-                        }
                         
                         $renderedHtml = DocumentationUtil::renderPhp("$articlesFolder/$article");
                         $dom = new DOMDocument();
@@ -62,14 +57,8 @@
                     ?>
                     <?php foreach($subHeadings as $subHeading): ?>
                         <a 
-                            class="
-                                side-nav-subheading
-                                side-nav-subheading-<?= $subHeading->tagName; ?>
-                                <?= ("{$subHeading->id}" == $currentFragment) ? 'underline' : ''; ?>
-                            "
-
-                            <?php /* Hack: put fragment into a server request */ ?>
-                            href="<?= "/documentation/?article=$article&fragment={$subHeading->id}#{$subHeading->id}"; ?>"
+                            class="side-nav-subheading side-nav-subheading-<?= $subHeading->tagName; ?>"
+                            href="<?= "/documentation/?article=$article#{$subHeading->id}"; ?>"
                         >
                             <?= $subHeading->nodeValue; ?>
                         </a>

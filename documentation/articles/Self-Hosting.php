@@ -5,7 +5,7 @@ Hier erfährst du, wie du deinen eigenen Minecraft-Walo Server inklusive Website
 
 <?= Heading::generate('h2', 'Vorbereitung'); ?>
 <p>
-Folgende Dinge müssen auf der Host-Maschine installiert sein:
+Folgende Dinge müssen jedenfalls auf der Host-Maschine installiert sein:
 </p>
 
 <ul>
@@ -30,16 +30,64 @@ Es ist ein vorkonfigurierter Server mit ...
     <li>einem <b>Spielerlimit von 50</b></li>
 </ul>
 
-<?= Heading::generate('h3', 'Server starten'); ?>
+<?= Heading::generate('h3', 'Server-Paket starten'); ?>
 <p>
-Nach dem Herunterladen muss man die .zip Datei nurnoch extrahieren, die <b>eula.txt</b> akzeptieren und <b>start.bat</b> (Windows) bzw. <b>start.sh</b> (Unix) ausführen. Am besten du hast einen VPS oder Bare-Metal Server anstelle eines Minecraft-Server anbieters. VPS Anbieter geben dir mehr Kontrolle über dein System, was für manche Features des Walo-Plugins erforderlich sind (Leaderboards, Website, automatischer Restart). 
+Nach dem Herunterladen muss man die .zip Datei nurnoch extrahieren, die <span class="code-inline">eula.txt</span> akzeptieren und <span class="code-inline">start.bat</span> (Windows) bzw. <span class="code-inline">start.sh</span> (Unix) ausführen. Am besten du hast einen VPS oder Bare-Metal Server anstelle eines Minecraft-Server anbieters. VPS Anbieter geben dir mehr Kontrolle über dein System, was für manche Features des Walo-Plugins erforderlich sind (Leaderboards, Website, automatischer Restart). 
 </p>
-
 <p>
 Wie du den Walo-Server, bzw. das Plugin einrichten kannst erfährst du <a href="?article=Konfiguration.php">hier</a>!
 </p>
 
-<?= Heading::generate('h2', 'Optionale Features einrichten'); ?>
+<?= Heading::generate('h2', 'Auf das Server-Paket verzichten'); ?>
+<p>
+Du vertraust mir nicht und möchtest den Server auf eigene Faust herunterladen? Kein Problem, hier steht wie es geht. Kurz vorweg: <b>Bei der manuellen Einrichtung des Minecraft-Servers wird angenommen, dass du Ubuntu Server 24.04 verwendest.</b> Falls du Windows benutzen willst, lade doch bitte das Server-Paket herunter. Andernfalls bist du hier auf dich alleine gestellt.
+</p>
+
+<?= Heading::generate('h3', 'Paper herunterladen'); ?>
+<p>
+Lade die neuste 1.8.8 Server-Software von <a target="_blank" href="https://papermc.io/downloads/all">papermc.io</a> herunter. Erstelle einen Ordner und kopiere sie unter dem Namen <span class="code-inline">server.jar</span> hinein. Akzeptiere das Minecraft-EULA mit dem Text <span class="code-inline">eula=true</span> in <span class="code-inline">eula.txt</span>.
+</p>
+<p>
+Anschließend erstelle eine Datei namens <span class="code-inline">start.sh</span> mit folgendem Inhalt:
+</p>
+<pre class="code">
+#!/bin/bash
+java -Xmx&lt;<b>RAM_GRÖSSE</b>&gt;M -Xms&lt;<b>RAM_GRÖSSE durch 2</b>&gt;M -jar server.jar
+</pre>
+<p>
+Ersetze <span class="code-inline">&lt;RAM_GRÖSSE&gt;</span> mit deiner gewünschten RAM-Größe in <b>Gigabyte</b>. In der Regel lässt man einem Linux-Betriebssystem mindestens 1-2 Gigabyte an Arbeitsspeicher frei, heißt falls du 8GB Arbeitsspeicher hast, kannst du dem Minecraft-Server 6GB zuweisen: (1GB = 1000M)
+</p>
+<pre class="code">
+#!/bin/bash
+java -Xmx6000M -Xms3000M -jar server.jar
+</pre>
+
+<?= Heading::generate('h3', 'Plugins herunterladen'); ?>
+<p>
+Folgende Plugins wirst du benötigen:
+</p>
+<ul>
+    <li><a href="/plugin.php">Walo-Plugin</a></li>
+    <li><a href="https://github.com/MCTCP/TerrainControl/releases/tag/v2.7.2">TerrainControl v2.7.2</a></li>
+</ul>
+
+<p>
+Zum deaktivieren des LabyMod DamageIndicators (<b>optional</b>):
+</p>
+<ul>
+    <li><a href="https://www.spigotmc.org/resources/labymod-server-api.52423/">LabyMod Server API</a></li>
+    <li><a href="/assets/self-hosting/callable_di_disabler-1.0.jar">callable_di_disabler</a></li>
+</ul>
+<p>
+Verschiebe alle Plugins in den <span class="code-inline">plugins</span> Ordner.
+</p>
+
+<?= Heading::generate('h3', 'Konfigurieren'); ?>
+<p>
+Da du nicht das Server-Paket verwendet hast, sind für dich die <a href="?article=Konfiguration.php#optionaleeinstellungen">Optionalen Konfigurationseinstellungen</a> ganz wichtig zu beachten. Du solltest sie einrichten.
+</p>
+
+<?= Heading::generate('h2', 'Optionale Komponente einrichten'); ?>
 <p>
 Für diesen Teil wirst du Systemzugriff auf deinen Server benötigen, was Minecraft-Server Anbieter in der Regel ausschließt. Ich empfehle einen günstigen <a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> zu kaufen, wie einer von <a href="https://contabo.com/de/vps/">Contabo</a>. Alternativ kannst du den Server auch bei dir Zuhause beispielsweise auf einem alten Computer ausführen. Falls dies für dich keine Möglichkeit darstellt, kannst du aber trotzdem den Minecraft-Server verwenden, jedoch ohne Leaderboards und automatischen Restarts.
 </p>
@@ -63,7 +111,7 @@ sudo mv -f Walo-Web /usr/share/caddy/walo-web
 sudo chgrp -R www-data /usr/share/caddy/walo-web/
 </pre>
 <p>
-Beachte, dass du bei jedem Update der Website die Repository nochmal klonen müsstest (also nochmal diese zwei Befehle ausführen). Bei einer Aktualisierung der Website, ist auch wichtig, dass das Walo-Plugin auf der neusten Version ist, da sie sonst eventuell nicht mehr gut zusammen spielen können.
+Beachte, dass du bei jedem Update der Website die Repository nochmal klonen müsstest (also nochmal die oberen Befehle ausführen). Bei einer Aktualisierung der Website, ist auch wichtig, dass das Walo-Plugin auf der neusten Version ist, da sie sonst eventuell nicht mehr gut zusammen spielen können.
 </p>
 
 <p>
@@ -105,12 +153,17 @@ dbname = "walo"
 <p>
 Ersetze <span class="code-inline">MYSQL_SERVER_ADDRESS</span> mit deiner Server-Addresse oder Domain, die du vorher registriert hast.
 <br>
-Ersetze <span class="code-inline">YOUR_USERNAME</span> mit dem <b>Benutzernamen</b>, den du f�r die MySQL Datenbank verwendet hast.
+Ersetze <span class="code-inline">YOUR_USERNAME</span> mit dem <b>Benutzernamen</b>, den du für die MySQL Datenbank verwendet hast.
 <br>
-Ersetze <span class="code-inline">YOUR_PASSWORD</span> mit dem <b>Passwort</b>, den du f�r die MySQL Datenbank verwendet hast.
+Ersetze <span class="code-inline">YOUR_PASSWORD</span> mit dem <b>Passwort</b>, den du für die MySQL Datenbank verwendet hast.
 <br>
 <span class="code-inline">dbname</span> kann gleich bleiben.
 </p>
+
+<p>
+Außerdem musst eine Datei in <span class="code-inline">assets/secrets/database_token.txt</span> erstellen, wo du ein Passwort eingibst, welches unauthorisierten Zugriff vermeiden soll. Mehr dazu bei <a href="?article=Konfiguration.php#leaderboardsstatistik">Leaderboards & Statistik</a>.
+</p>
+
 <p>
 Die Website kann jetzt auch Änderungen an der Datenbank vornehmen und somit dem Walo-Plugin helfen Kills, Wins & Playcount zu speichern!
 <br>
