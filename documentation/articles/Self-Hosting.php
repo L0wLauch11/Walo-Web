@@ -3,7 +3,7 @@
 Hier erfährst du, wie du deinen eigenen Minecraft-Walo Server inklusive Website und Discord hosten kannst!
 </p>
 
-<h2 id="preparation">Vorbereitung</h2>
+<?= Heading::generate('h2', 'Vorbereitung'); ?>
 <p>
 Folgende Dinge müssen auf der Host-Maschine installiert sein:
 </p>
@@ -12,8 +12,7 @@ Folgende Dinge müssen auf der Host-Maschine installiert sein:
     <li>Java Version 8, zum Beispiel <a href="https://www.azul.com/downloads/#downloads-table-zulu">Azul OpenJDK</a>. Auf den meisten Minecraft-Server Anbietern inklusive.</li>
 </ul>
 
-<h2>Das vorgemachte Server-Paket verwenden</h2>
-
+<?= Heading::generate('h2', 'Das vorgemachte Server-Paket verwenden'); ?>
 <p>
 Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="/assets/self-hosting/walo-server-package.zip">walo-server-package.zip</a>. Lasse dieses auf einer Windows oder Linux Maschine laufen und dein Walo-Server ist so gut wie fertig.
 </p>
@@ -31,7 +30,7 @@ Es ist ein vorkonfigurierter Server mit ...
     <li>einem <b>Spielerlimit von 50</b></li>
 </ul>
 
-<h3>Server starten</h3>
+<?= Heading::generate('h3', 'Server starten'); ?>
 <p>
 Nach dem Herunterladen muss man die .zip Datei nurnoch extrahieren, die <b>eula.txt</b> akzeptieren und <b>start.bat</b> (Windows) bzw. <b>start.sh</b> (Unix) ausführen. Am besten du hast einen VPS oder Bare-Metal Server anstelle eines Minecraft-Server anbieters. VPS Anbieter geben dir mehr Kontrolle über dein System, was für manche Features des Walo-Plugins erforderlich sind (Leaderboards, Website, automatischer Restart). 
 </p>
@@ -40,20 +39,20 @@ Nach dem Herunterladen muss man die .zip Datei nurnoch extrahieren, die <b>eula.
 Wie du den Walo-Server, bzw. das Plugin einrichten kannst erfährst du <a href="?article=Konfiguration.php">hier</a>!
 </p>
 
-<h2>Optionale Features einrichten</h2>
+<?= Heading::generate('h2', 'Optionale Features einrichten'); ?>
 <p>
 Für diesen Teil wirst du Systemzugriff auf deinen Server benötigen, was Minecraft-Server Anbieter in der Regel ausschließt. Ich empfehle einen günstigen <a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> zu kaufen, wie einer von <a href="https://contabo.com/de/vps/">Contabo</a>. Alternativ kannst du den Server auch bei dir Zuhause beispielsweise auf einem alten Computer ausführen. Falls dies für dich keine Möglichkeit darstellt, kannst du aber trotzdem den Minecraft-Server verwenden, jedoch ohne Leaderboards und automatischen Restarts.
 </p>
 
-<h3>Website</h3>
+<?= Heading::generate('h3', 'Website'); ?>
 <p>
 Dieser Teil setzt voraus, dass du <a href="https://ubuntu.com/download/server">Ubuntu Server</a> 24.04 verwendest. Du kannst auch die Website auf dem selben VPS / Computer laufen lassen, auf dem auch der Minecraft-Server läuft.
 </p>
 
 <p>
-Installiere <span class="code-inline">git</span>, <span class="code-inline">caddy</span>, <span class="code-inline">php-fpm</span> und <span class="code-inline">php-mysql</span> um die Website einrichten zu können:
+Installiere <span class="code-inline">git</span>, <span class="code-inline">caddy</span>, <span class="code-inline">php-fpm</span>, <span class="code-inline">php-dom</span> und <span class="code-inline">php-mysql</span> um die Website einrichten zu können:
 </p>
-<pre class="code">sudo apt install caddy php-fpm php-mysql</pre>
+<pre class="code">sudo apt install git caddy php-fpm php-dom php-mysql</pre>
 
 <p>
 Dann klone folgende Git-Repository und verschiebe sie in <span class="code-inline">/usr/share/caddy/walo-web</span>:
@@ -85,7 +84,7 @@ Ersetze <span class="code-inline">DEINE_DOMAIN</span> mit einer Domain, die du d
 Und schon kannst du die Website aufrufen unter <span class="code-inline">https://DEINE_DOMAIN/</span>!
 </p>
 
-<h4>MySQL Datenbank für Leaderboards</h4>
+<?= Heading::generate('h4', 'MySQL Datenbank für Leaderboards'); ?>
 <p>
 Nachdem die Website problemlos läuft, kannst du auch noch die Leaderboards einrichten. Installiere dafür einen MySQL Server mit Adminer. Folgendes Tutorial bringt dir bei, wie du das einrichten kannst: <a href="https://www.makeuseof.com/how-to-install-adminer-on-ubuntu/">https://www.makeuseof.com/how-to-install-adminer-on-ubuntu/</a>.
 </p>
@@ -106,12 +105,14 @@ dbname = "walo"
 <p>
 Ersetze <span class="code-inline">MYSQL_SERVER_ADDRESS</span> mit deiner Server-Addresse oder Domain, die du vorher registriert hast.
 <br>
-Ersetze <span class="code-inline">YOUR_USERNAME</span> mit dem <b>Benutzernamen</b>, den du für die MySQL Datenbank verwendet hast.
+Ersetze <span class="code-inline">YOUR_USERNAME</span> mit dem <b>Benutzernamen</b>, den du f�r die MySQL Datenbank verwendet hast.
 <br>
-Ersetze <span class="code-inline">YOUR_PASSWORD</span> mit dem <b>Passwort</b>, den du für die MySQL Datenbank verwendet hast.
+Ersetze <span class="code-inline">YOUR_PASSWORD</span> mit dem <b>Passwort</b>, den du f�r die MySQL Datenbank verwendet hast.
 <br>
 <span class="code-inline">dbname</span> kann gleich bleiben.
 </p>
 <p>
 Die Website kann jetzt auch Änderungen an der Datenbank vornehmen und somit dem Walo-Plugin helfen Kills, Wins & Playcount zu speichern!
+<br>
+Gehe über zur <a href="?article=Konfiguration.php">Konfiguration</a>!
 </p>

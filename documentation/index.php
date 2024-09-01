@@ -16,6 +16,9 @@
 
         $root = $_SERVER['DOCUMENT_ROOT'];
         include "$root/navigation.html";
+        
+        include_once 'DocumentationUtil.class.php';
+        include_once 'Heading.class.php';
 
         $articlesFolder = $_SERVER['DOCUMENT_ROOT'].'/documentation/articles';
         ?>
@@ -30,22 +33,61 @@
             <?php foreach ($articles as $article) { ?>
                 <li>
                     <a href="<?= "/documentation/?article=$article"; ?>">
-                        <?= ucfirst(
-                                str_replace('.php', '', 
-                                str_replace('-', ' ', 
-                                    $article
-                                )
-                                )
-                            ); ?>
+                        <?php
+                        // related - https://stackoverflow.com/questions/14648442/domdocumentloadhtml-warning-htmlparseentityref-no-name-in-entity
+                        libxml_use_internal_errors(true);
+
+                        $currentFragment = '';
+                        if (isset($_GET['fragment'])) {
+                            echo $currentFragment;
+                            $currentFragment = $_GET['fragment'];
+                        }
+                        
+                        $renderedHtml = DocumentationUtil::renderPhp("$articlesFolder/$article");
+                        $dom = new DOMDocument();
+                        $dom->loadHTML(
+                            // Encoding somehow being parsed incorrectly by this function
+                            mb_convert_encoding($renderedHtml, 'ISO-8859-1', 'UTF-8')
+                        );
+
+                        $masterHeading = $dom->getElementsByTagName('h1')->item(0);
+                        ?>
+
+                        <?= $masterHeading->nodeValue; ?>
                     </a>
+
+                    <?php
+                    $xpath = new DOMXPath($dom);
+                    $subHeadings = $xpath->query('//h2 | //h3 | //h4');
+                    ?>
+                    <?php foreach($subHeadings as $subHeading): ?>
+                        <a 
+                            class="
+                                side-nav-subheading
+                                side-nav-subheading-<?= $subHeading->tagName; ?>
+                                <?= ("{$subHeading->id}" == $currentFragment) ? 'underline' : ''; ?>
+                            "
+
+                            <?php /* Hack: put fragment into a server request */ ?>
+                            href="<?= "/documentation/?article=$article&fragment={$subHeading->id}#{$subHeading->id}"; ?>"
+                        >
+                            <?= $subHeading->nodeValue; ?>
+                        </a>
+                    <?php endforeach; ?>
                 </li>
             <?php } ?>
         </ul>
     </div>
 
     <main class="documentation-content">
-        <?php 
+        <?php
         if (isset($_GET['article'])) {
+            // Security Risk: would otherwise allow stealing credentials!
+            // e. g. "?article=../../assets/secrets/credentials.ini" would actually output the credentials.ini file!
+            if (str_contains($_GET['article'], '..')) {
+                include $articlesFolder.'/'.$articles[0];
+            }
+
             include $articlesFolder.'/'.$_GET['article'];
         } else {
             include $articlesFolder.'/'.$articles[0];
