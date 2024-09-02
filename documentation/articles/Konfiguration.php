@@ -3,7 +3,7 @@
 <?= Heading::generate('h2', 'Walo Konfiguration'); ?>
 <p>Du findest die Walo-Dokumentation im Server Ordner &rightarrow; plugins &rightarrow; Walo &rightarrow; <span class="code-inline">config.yml</span>. Die Standardkonfiguration sieht so aus:</p>
 <pre class="code">
-<?= htmlspecialchars(file_get_contents('https://raw.githubusercontent.com/L0wLauch11/Walo/main/src/main/resources/config.yml')); ?>
+<?= htmlspecialchars(DocumentationUtil::curl('https://raw.githubusercontent.com/L0wLauch11/Walo/main/src/main/resources/config.yml')); ?>
 </pre>
 
 <?= Heading::generate('h3', 'Discord Webhook'); ?>
