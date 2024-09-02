@@ -27,7 +27,7 @@
     <div class="documentation-side-nav">
         <ul>
             <?php
-            $articles = ['Self-Hosting.php', 'Konfiguration.php'];
+            $articles = ['Spielablauf.php', 'Self-Hosting.php', 'Konfiguration.php'];
             ?>
 
             <?php foreach ($articles as $article) { ?>

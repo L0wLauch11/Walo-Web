@@ -17,6 +17,7 @@
     top: 0px;
     margin-right: 16px;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .documentation-side-nav ul {
@@ -171,4 +172,26 @@ h4:before {
 
 .underline {
     text-decoration: underline;
+}
+
+.screenshot {
+    max-width: 50%;
+    margin-left: 16px;
+}
+
+@media only screen and (max-width: 800px) {
+    .documentation-side-nav {
+        height: fit-content;
+        float: none;
+        position:initial;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .documentation-content {
+        display: block;
+        color: var(--c4);
+        margin-left: 16px;
+        margin-right: 16px;
+    }
 }
