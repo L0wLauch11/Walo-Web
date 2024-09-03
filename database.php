@@ -93,7 +93,7 @@ switch ($operation) {
         }
 
         if (!isset($kills)) {
-            $sql = "INSERT INTO walo (UUID, NAME, KILLS) VALUES ('$minecraft_uuid', '$minecraft_name', 0)";
+            $sql = "INSERT INTO walo (UUID, NAME, KILLS, WINS, PLAYCOUNT) VALUES ('$minecraft_uuid', '$minecraft_name', 0, 0, 0)";
             $result = $conn->query($sql);
         }
 

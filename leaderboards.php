@@ -53,7 +53,6 @@
             // Fetch leaderboards from DB
             $sql = "SELECT * FROM walo";
             $result = $conn->query($sql);
-            $entries = false;
 
             // If entries exist
             if ($result->num_rows > 0) {
@@ -105,12 +104,7 @@
                     ";
                 }
                 echo "</table>";
-
-                $entries = true;
-            }
-
-            // No entries
-            if ($entries == false) {
+            } else {
                 echo "<p id='no-data'>Noch keine Einträge</p><br>";
             }
         }
