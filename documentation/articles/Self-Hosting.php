@@ -6,6 +6,7 @@
 
 <ul>
     <li>Java Version 8, zum Beispiel <a href="https://www.azul.com/downloads/#downloads-table-zulu">Azul OpenJDK</a>. Auf den meisten Minecraft-Server Anbietern inklusive.</li>
+    <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server"><span class="code-inline">&nbsp;screen</span></a> auf Linux</li>
 </ul>
 
 <?= Heading::generate('h2', 'Das vorgemachte Server-Paket verwenden'); ?>
@@ -37,13 +38,13 @@ Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="/a
 <p>Anschließend erstelle eine Datei namens <span class="code-inline">start.sh</span> mit folgendem Inhalt:</p>
 <pre class="code">
 #!/bin/bash
-java -Xmx&lt;<b>RAM_GRÖSSE</b>&gt;M -Xms&lt;<b>RAM_GRÖSSE durch 2</b>&gt;M -jar server.jar
+/usr/bin/screen -dmS minecraft-walo-server java -Xmx&lt;<b>RAM_GRÖSSE</b>&gt;M -Xms&lt;<b>RAM_GRÖSSE durch 2</b>&gt;M -jar server.jar
 </pre>
 
 <p>Ersetze <span class="code-inline">&lt;RAM_GRÖSSE&gt;</span> mit deiner gewünschten RAM-Größe in <b>Gigabyte</b>. In der Regel lässt man einem Linux-Betriebssystem mindestens 1-2 Gigabyte an Arbeitsspeicher frei, heißt falls du 8GB Arbeitsspeicher hast, kannst du dem Minecraft-Server 6GB zuweisen: (1GB = 1000M)</p>
 <pre class="code">
 #!/bin/bash
-java -Xmx6000M -Xms3000M -jar server.jar
+/usr/bin/screen -dmS minecraft-walo-server java -Xmx6000M -Xms3000M -jar server.jar
 </pre>
 
 <?= Heading::generate('h3', 'Plugins herunterladen'); ?>
@@ -62,6 +63,11 @@ java -Xmx6000M -Xms3000M -jar server.jar
 
 <?= Heading::generate('h3', 'Konfigurieren'); ?>
 <p>Da du nicht das Server-Paket verwendet hast, sind für dich die <a href="?article=Konfiguration.php#optionaleeinstellungen">Optionalen Konfigurationseinstellungen</a> ganz wichtig zu beachten. Du solltest sie einrichten.</p>
+
+<?= Heading::generate('h2', 'Linux Einrichtung'); ?>
+<p>Falls du Linux verwendest, musst du folgendes in einem Terminal machen:</p>
+<p>Gib <span class="code-inline">chmod +x start.sh</span> ein, um dem Computer die Berechtigung zu erteilen, den Server auszuführen.</p>
+<p>Dann kannst du den Server mit dem Befehl <span class="code-inline">./start.sh</span> starten. Gib <span class="code-inline">screen -r minecraft-walo-server</span> ein, um die Konsole des Minecraft Servers anzuzeigen. Mit der Tastenkombination <span class="code-inline">STRG</span> + <span class="code-inline">A</span> und dann die Taste <span class="code-inline">D</span> kannst du die Konsole wieder verstecken und zurück in das Linux-Betriebssystem kommen. Weiteres dazu findest du in der Dokumentation von <a href="https://help.ubuntu.com/community/Screen"><span class="code-inline">screen</span></a></p>
 
 <?= Heading::generate('h2', 'Optionale Komponente einrichten'); ?>
 <p>Für diesen Teil wirst du Systemzugriff auf deinen Server benötigen, was Minecraft-Server Anbieter in der Regel ausschließt. Ich empfehle einen günstigen <a href="https://en.wikipedia.org/wiki/Virtual_private_server">VPS</a> zu kaufen, wie einer von <a href="https://contabo.com/de/vps/">Contabo</a>. Alternativ kannst du den Server auch bei dir Zuhause beispielsweise auf einem alten Computer ausführen. Falls dies für dich keine Möglichkeit darstellt, kannst du aber trotzdem den Minecraft-Server verwenden, jedoch ohne Leaderboards und automatischen Restarts.</p>
