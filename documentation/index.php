@@ -75,9 +75,9 @@
             // e. g. "?article=../../assets/secrets/credentials.ini" would actually output the credentials.ini file!
             if (str_contains($_GET['article'], '..')) {
                 include $articlesFolder.'/'.$articles[0];
+            } else {
+                include $articlesFolder.'/'.$_GET['article'];
             }
-
-            include $articlesFolder.'/'.$_GET['article'];
         } else {
             include $articlesFolder.'/'.$articles[0];
         }
