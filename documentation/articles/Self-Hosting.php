@@ -90,6 +90,11 @@ DEINE_DOMAIN {
     encode zstd gzip
     php_fastcgi unix//run/php/php-fpm.sock
     file_server
+
+    @blocked {
+        path /assets/secrets/*
+    }
+    respond @blocked 403
 }
 </pre>
 
