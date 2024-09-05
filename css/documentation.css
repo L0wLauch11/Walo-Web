@@ -54,7 +54,7 @@ ul li {
     text-indent: -5px;
 }
 
-ul li:before {
+ul li::before {
     content: "- ";
     text-indent: -5px;
 }
@@ -82,76 +82,64 @@ h1, h2, h3, h4 {
 
 .side-nav-subheading-h1 {
     padding-left: 32px;
-    counter-reset: h2counter;
 }
 
 .side-nav-subheading-h2 {
     padding-left: 40px;
-    counter-reset: h3counter;
 }
 
 .side-nav-subheading-h3 {
     padding-left: 48px;
-    counter-increment: h3counter;
 }
 
 .side-nav-subheading-h4 {
     padding-left: 56px;
-    counter-increment: h4counter;
 }
 
-.side-nav-subheading-h2:before {
-    content: counter(h2counter) ".";
-    counter-increment: h2counter;
+.side-nav-subheading-h2::before {
+    content: counter(a) ".";
     color: var(--c4);
 }
 
-.side-nav-subheading-h3:before {
-    content: counter(h2counter) "." counter(h3counter) ".";
+.side-nav-subheading-h3::before {
+    content: counter(a) "." counter(b) ".";
     color: var(--c4);
 }
 
-.side-nav-subheading-h4:before {
-    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".";
+.side-nav-subheading-h4::before {
+    content: counter(a) "." counter(b) "." counter(c) ".";
     color: var(--c4);
 }
 
 /* In article headings */
-h1 {
-    counter-reset: h2counter;
-    font-size: 22px;
-}
-
-h2 {
-    counter-reset: h3counter;
-    font-size: 18px;
-}
-
-h3 {
-    font-size: 16px;
-    counter-increment: h3counter;
-}
-
-h4 {
-    font-size: 14px;
-    counter-increment: h4counter;
-}
-
-h2:before {
-    content: counter(h2counter) ".\0000a0\0000a0";
-    counter-increment: h2counter;
-}
-
-h3:before {
-    content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
-}
-
-h4:before {
-    content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
-}
-
 .header-counter-reset {
-    counter-reset: h2counter;
+    counter-reset: a;
+}
+
+h2, .side-nav-subheading-h2 {
+    counter-increment: a;
+    counter-reset: b;
+}
+
+h3, .side-nav-subheading-h3 {
+    counter-reset: c;
+    counter-increment: b;
+}
+
+h4, .side-nav-subheading-h4 {
+    counter-increment: c;
+}
+
+h2::before {
+    content: counter(a) ".\0000a0\0000a0";
+}
+
+h3::before {
+    content: counter(a) "." counter(b) ".\0000a0\0000a0";
+}
+
+h4::before {
+    content: counter(a) "." counter(b) "." counter(c) ".\0000a0\0000a0";
 }
 
 .code, .code-inline {

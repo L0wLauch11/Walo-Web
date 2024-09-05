@@ -31,9 +31,9 @@
             ?>
 
             <?php foreach ($articles as $article) { ?>
-                <div class="header-counter-reset"></div>
+                
                 <li>
-                    <a href="<?= "/documentation/?article=$article"; ?>">
+                    <a class="header-counter-reset" href="<?= "/documentation/?article=$article"; ?>">
                         <?php
                         // related - https://stackoverflow.com/questions/14648442/domdocumentloadhtml-warning-htmlparseentityref-no-name-in-entity
                         libxml_use_internal_errors(true);
@@ -55,6 +55,7 @@
                     $xpath = new DOMXPath($dom);
                     $subHeadings = $xpath->query('//h2 | //h3 | //h4');
                     ?>
+                    
                     <?php foreach($subHeadings as $subHeading): ?>
                         <a 
                             class="side-nav-subheading side-nav-subheading-<?= $subHeading->tagName; ?>"
