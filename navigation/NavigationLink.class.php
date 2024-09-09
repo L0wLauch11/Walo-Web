@@ -9,7 +9,7 @@ class NavigationLink {
 
         return "
             <li>
-                <a href='$pageLink' $aProperties>
+                <a href='$pageLink'>
                     $icon
                     <span class='widescreen-only'>$title</span>
                 </a>

@@ -263,7 +263,8 @@ header nav ul li img {
     color: black;
     font-weight: bold;
     border-radius: 8px;
-    float: right;
+    display: inline-block;
+    margin: 0;
     padding: 8px 10px 8px 10px !important;
 }
 
@@ -287,13 +288,15 @@ header nav ul li img {
 
     header nav {
         width: 100%;
+        padding: 8px 0;
     }
 
     header nav ul {
         padding: 0;
-        display: block;
-        width: fit-content;
-        margin: 0 auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+        display: table;
     }
 
     header nav ul li a {
@@ -301,8 +304,8 @@ header nav ul li img {
     }
 
     header nav ul li {
-        margin-left: 12px;
-        margin-right: 12px;
+        text-align: center;
+        display: table-cell;
     }
 
     header nav ul li img {

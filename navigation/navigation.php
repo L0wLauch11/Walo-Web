@@ -10,9 +10,13 @@
         <?= NavigationLink::generate('/leaderboards.php', 'Leaderboards', '/assets/icon-leaderboards.png'); ?>
         <?= NavigationLink::generate('/plugin.php', 'MC-Plugin', '/assets/plugin-source.png'); ?>
         <?= NavigationLink::generate('/documentation', 'Dokumentation', '/assets/icon-documentation.png'); ?>
-        <span class="donation-link">
-            <?= NavigationLink::generate('https://ko-fi.com/lowlauch', 'Spenden', '/assets/icon-donate.png', 'target="_blank"'); ?>
-        </span>
-        <span class="stretch"></span>
+        
+        <?php /* Donation link is a bit different from the others */ ?>
+        <li class="donation-link">
+                <a href='https://ko-fi.com/lowlauch' target="_blank">
+                    <img src="/assets/icon-donate.png" alt="">
+                    <span class='widescreen-only'>Spenden</span>
+                </a>
+        </li>
     </ul>
 </nav>
