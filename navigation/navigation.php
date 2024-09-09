@@ -2,7 +2,7 @@
 
 <nav>
     <ul>
-        <li>
+        <li class="widescreen-only">
             <h1>Walo</h1>
         </li>
 

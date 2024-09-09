@@ -281,4 +281,15 @@ header nav ul li img {
     .widescreen-only {
         display: none;
     }
+
+    header nav {
+        width: 100%;
+    }
+
+    header nav ul {
+        padding: 0;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
 }
