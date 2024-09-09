@@ -7,8 +7,13 @@ class NavigationLink {
             $icon = "<img src='$iconImage' alt=''>";
         }
 
+        $isCurrent = "";
+        if (str_contains($_SERVER['REQUEST_URI'], $pageLink)) {
+            $isCurrent = 'current-page';
+        }
+
         return "
-            <li>
+            <li class='$isCurrent'>
                 <a href='$pageLink'>
                     $icon
                     <span class='widescreen-only'>$title</span>

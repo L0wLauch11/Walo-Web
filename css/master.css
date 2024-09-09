@@ -108,6 +108,11 @@ nav ul li a:hover {
     background-color: var(--c5);
 }
 
+.current-page a {
+    background-color: var(--c5);
+    outline: 1px solid darkgray;
+}
+
 header nav ul li h1 {
     color: var(--c4);
     font-size: 24px;

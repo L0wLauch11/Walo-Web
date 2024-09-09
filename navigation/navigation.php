@@ -6,10 +6,10 @@
             <h1>Walo</h1>
         </li>
 
-        <?= NavigationLink::generate('/', 'Home', '/assets/icon-home.png'); ?>
+        <?= NavigationLink::generate('/index.php', 'Home', '/assets/icon-home.png'); ?>
         <?= NavigationLink::generate('/leaderboards.php', 'Leaderboards', '/assets/icon-leaderboards.png'); ?>
         <?= NavigationLink::generate('/plugin.php', 'MC-Plugin', '/assets/plugin-source.png'); ?>
-        <?= NavigationLink::generate('/documentation', 'Dokumentation', '/assets/icon-documentation.png'); ?>
+        <?= NavigationLink::generate('/documentation/', 'Dokumentation', '/assets/icon-documentation.png'); ?>
         
         <?php /* Donation link is a bit different from the others */ ?>
         <li class="donation-link">
