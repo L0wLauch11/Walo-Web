@@ -16,7 +16,7 @@
         error_reporting(E_ALL);
 
         $root = $_SERVER['DOCUMENT_ROOT'];
-        include "$root/navigation.html";
+        include "$root/navigation/navigation.php";
         
         include_once 'DocumentationUtil.class.php';
         include_once 'Heading.class.php';

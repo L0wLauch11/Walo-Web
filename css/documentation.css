@@ -157,6 +157,11 @@ h4::before {
     font-size: 12px !important;
 }
 
+.code {
+    max-width: 90%;
+    white-space: pre-wrap;
+}
+
 .code-inline {
     margin-left: 0px;
     display: inline-block;
@@ -171,7 +176,7 @@ h4::before {
     margin-left: 16px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
     .documentation-side-nav {
         height: fit-content;
         float: none;

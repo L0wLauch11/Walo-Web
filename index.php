@@ -13,7 +13,7 @@
     <header>
         <?php
         $root = dirname(__FILE__);
-        include "$root/navigation.html";
+        include "$root/navigation/navigation.php";
 
         $server_address = "walo.mine.bz";
         ?>
