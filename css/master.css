@@ -194,7 +194,6 @@ header nav ul li img {
 }
 
 .info img {
-    margin-bottom: 24px;
     text-align: right;
     width: 40%;
     height: 40%;
@@ -203,6 +202,7 @@ header nav ul li img {
 
 .info-container {
     padding-top: 16px;
+    padding-bottom: 16px;
     border-top: 3px solid var(--c1);
     text-align: center;
     width: 100%;
@@ -212,10 +212,13 @@ header nav ul li img {
 .info-container p {
     margin: auto;
     width: 50%;
+    font-size: clamp(12px, calc(1.2vw + 12px), 24px);
+    vertical-align: middle;
 }
 
 .info-container img {
     width: 45%;
+    vertical-align: middle;
 }
 
 .seperator {
