@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walo Dokumentation</title>
-    <link rel="stylesheet" href="../css/master.css">
+    
     <link rel="stylesheet" href="../css/documentation.css">
+    <link rel="stylesheet" href="../css/master.css">
 </head>
 <body>
     <header>

@@ -43,7 +43,6 @@
 }
 
 ul {
-    padding-left: 24px;
     font-size: 14px;
     display: inline-block;
     margin-top: 0;
@@ -59,8 +58,13 @@ ul li::before {
     text-indent: -5px;
 }
 
-body {
-    counter-reset: h2counter;
+nav ul li {
+    content: "" !important;
+    text-indent: initial !important;
+}
+
+nav ul li::before  {
+    content: "";
 }
 
 h1, h2, h3, h4 {
