@@ -13,5 +13,6 @@
         <span class="donation-link">
             <?= NavigationLink::generate('https://ko-fi.com/lowlauch', 'Spenden', '/assets/icon-donate.png', 'target="_blank"'); ?>
         </span>
+        <span class="stretch"></span>
     </ul>
 </nav>

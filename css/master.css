@@ -90,13 +90,13 @@ nav ul {
 nav ul li {
     display: inline-block;
     list-style-type: none;
-    margin: 8px 4px;
+    margin: 8px 8px;
     vertical-align: middle;
 }
 
 nav ul li a {
     color: var(--c4);
-    padding: 8px 16px;
+    padding: 8px 8px;
     text-decoration: none;
     vertical-align: middle;
     transition: 0.3s;
@@ -294,5 +294,18 @@ header nav ul li img {
         display: block;
         width: fit-content;
         margin: 0 auto;
+    }
+
+    header nav ul li a {
+        padding-top: 16px;
+    }
+
+    header nav ul li {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    header nav ul li img {
+        width: 32px;
     }
 }
