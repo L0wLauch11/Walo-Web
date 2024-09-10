@@ -199,7 +199,9 @@ h4::before {
     .documentation-side-nav {
         height: fit-content;
         float: none;
-        position:initial;
+        position: initial;
+        display: block;
+        box-sizing: border-box;
         width: 100%;
         padding-top: 0;
     }
