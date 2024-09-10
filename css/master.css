@@ -251,7 +251,7 @@ header nav ul li img {
 .mc-item {
     margin-bottom: 0px !important;
     width: 32px !important;
-    image-rendering: optimizeSpeed;
+    image-rendering: pixelated;
 }
 
 .list-forbidden-items li {
