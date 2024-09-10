@@ -10,7 +10,7 @@
     --rounding: 8px;
     --rounding-small: 4px;
 
-    --default-border: solid 2px var(--c5);
+    --default-border: solid 1px var(--c5);
 }
 
 html {
@@ -49,6 +49,8 @@ a {
     left: auto;
     border: var(--default-border);
     border-color: var(--c5);
+    
+    box-shadow: 0px 0px 5px black;
 }
 
 .brief {
@@ -326,5 +328,12 @@ header nav ul li img {
 
     header nav ul li img {
         width: 32px;
+    }
+
+    
+    .container {
+        border-radius: 0;
+        border: none;
+        box-shadow: 0px 0px 5px black;
     }
 }
