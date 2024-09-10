@@ -77,7 +77,7 @@
 
                 <li>
                     <img class="mc-item" src="assets/mc/golden_apple.png" alt="">
-                    <span><b>Verzauberter goldener Äpfel</b></span>
+                    <span><b>Verzauberter goldener Apfel</b></span>
                 </li>
 
                 <li>
