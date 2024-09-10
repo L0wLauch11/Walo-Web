@@ -61,7 +61,9 @@ $password = $credentials['password'];
 $dbname = $credentials['dbname'];
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password);
+$conn->query("CREATE DATABASE IF NOT EXISTS $dbname");
+mysqli_select_db($conn, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -75,9 +77,6 @@ if (isset($_GET['value'])) {
 
 switch ($operation) {
     case 'inittable':
-        $sql = 'CREATE DATABASE IF NOT EXISTS walo';
-        $conn->query($sql);
-
         $sql = 'CREATE TABLE IF NOT EXISTS walo (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT(100), WINS INT(100), PLAYCOUNT INT(100))';
         $conn->query($sql);
 
