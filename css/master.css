@@ -285,10 +285,21 @@ header nav ul li img {
     filter: invert(1);
 }
 
+.warning {
+    color: yellow;
+}
+
+.mobile-only {
+    display: none;
+}
 
 @media only screen and (max-width: 900px) {
     .widescreen-only {
         display: none;
+    }
+
+    .mobile-only {
+        display: block;
     }
 
     header nav {

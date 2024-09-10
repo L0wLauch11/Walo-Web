@@ -176,6 +176,25 @@ h4::before {
     margin-left: 16px;
 }
 
+.downloads-table {
+    background-color: var(--c1);
+    border-collapse: collapse;
+}
+
+.downloads-table th {
+    text-align: left;
+}
+
+.downloads-table .row-darker {
+    background-color: var(--c2);
+}
+
+.downloads-table th, .downloads-table td {
+    border: 1px solid;
+    padding: 4px 12px;
+    border-color: var(--c5);
+}
+
 @media only screen and (max-width: 1000px) {
     .documentation-side-nav {
         height: fit-content;

@@ -16,7 +16,7 @@ discord-webhook-url: &lt;your-discord-webhook-url&gt;
 <p>Falls du auf deiner eigenen Walo-Website Statistiken & Leaderboards anzeigen lassen willst gebe die URL des Webservers an, zum Beispiel könnte man folgende Konfiguration verwenden, um das Walo-Plugin mit dieser Website zu verbinden:</p>
 <pre class="code">
 web-database-api:
-  url: https://walo.mine.bz/database.php
+  url: https://&lt;DEINE_DOMAIN&gt;/database.php
   access-token: &lt;Hier bräuchtest du den access token, der unter 'assets/secrets/database_token.txt' am Webserver gespeichert ist&gt;
 </pre>
 

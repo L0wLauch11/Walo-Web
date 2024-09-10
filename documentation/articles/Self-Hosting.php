@@ -11,14 +11,14 @@
 
 <?= Heading::generate('h2', 'Das vorgemachte Server-Paket verwenden'); ?>
 <p>
-Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="/assets/self-hosting/walo-server-package.zip">walo-server-package.zip</a>. Lasse dieses auf einer Windows oder Linux Maschine laufen und dein Walo-Server ist so gut wie fertig.
+Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="?article=Downloads.php#minecraftserverpaket">walo-server-package.zip</a>. Lasse dieses auf einer Windows oder Linux Maschine laufen und dein Walo-Server ist so gut wie fertig.
 </p>
 
 <p>Es ist ein vorkonfigurierter Server mit ...</p>
 <ul>
     <li><a href="https://papermc.io/">Paper 1.8.8</a> im <a href="https://docs.papermc.io/paper/anti-xray">Anti-XRay Modus 2</a></li>
-    <li>dem <a href="/plugin.php">Walo</a>-Plugin</li>
-    <li><a href="/assets/self-hosting/WaloRestartCompanion.jar">WaloRestartCompanion</a>, was den Server automatisch neustartet, wenn das Spiel zuende ist</li>
+    <li>dem <a href="?article=Downloads.php#minecraftwaloplugin">Walo</a>-Plugin</li>
+    <li><a href="?article=Downloads.php#walorestartcompanion">WaloRestartCompanion</a>, was den Server automatisch neustartet, wenn das Spiel zuende ist</li>
     <li><b>TerrainControl</b> so eingerichtet, dass keine Ozeane mehr generiert werden</li>
     <li><b>DamageIndicator deaktiviert</b> für LabyMod</li>
     <li>einem <b>Spielerlimit von 50</b></li>
@@ -50,14 +50,14 @@ Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="/a
 <?= Heading::generate('h3', 'Plugins herunterladen'); ?>
 <p>Folgende Plugins wirst du benötigen:</p>
 <ul>
-    <li><a href="/plugin.php">Walo-Plugin</a></li>
+    <li><a href="?article=Downloads.php#minecraftwaloplugin">Walo-Plugin</a></li>
     <li><a href="https://github.com/MCTCP/TerrainControl/releases/tag/v2.7.2">TerrainControl v2.7.2</a></li>
 </ul>
 
 <p>Zum deaktivieren des LabyMod DamageIndicators (<b>optional</b>):</p>
 <ul>
     <li><a href="https://www.spigotmc.org/resources/labymod-server-api.52423/">LabyMod Server API</a></li>
-    <li><a href="/assets/self-hosting/callable_di_disabler-1.0.jar">callable_di_disabler</a></li>
+    <li><a href="http://127.0.0.1:8080/documentation/?article=Downloads.php#damageindicatordisabler">callable_di_disabler</a></li>
 </ul>
 <p>Verschiebe alle Plugins in den <span class="code-inline">plugins</span> Ordner.</p>
 

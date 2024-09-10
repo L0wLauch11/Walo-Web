@@ -75,10 +75,13 @@ if (isset($_GET['value'])) {
 
 switch ($operation) {
     case 'inittable':
+        $sql = 'CREATE DATABASE IF NOT EXISTS walo';
+        $conn->query($sql);
+
         $sql = 'CREATE TABLE IF NOT EXISTS walo (UUID VARCHAR(100), NAME VARCHAR(100), KILLS INT(100), WINS INT(100), PLAYCOUNT INT(100))';
         $conn->query($sql);
 
-        echo 'Walo table created';
+        echo 'Walo database and/or table created';
 
         break;
 

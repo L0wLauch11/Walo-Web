@@ -16,23 +16,24 @@
         error_reporting(E_ALL);
 
         $root = $_SERVER['DOCUMENT_ROOT'];
-        include "$root/navigation/navigation.php";
+        include_once "$root/navigation/navigation.php";
         
         include_once 'DocumentationUtil.class.php';
         include_once 'Heading.class.php';
+        include_once 'DownloadsTable.class.php';
 
         $articlesFolder = $_SERVER['DOCUMENT_ROOT'].'/documentation/articles';
         ?>
     </header>
 
     <div class="documentation-side-nav">
+        <span style="font-size: 16px;" class="mobile-only warning"><br>Die Dokumentation wird am besten auf einem großen Bildschirm dargestellt.</span>
         <ul>
             <?php
-            $articles = ['Spielablauf.php', 'Self-Hosting.php', 'Konfiguration.php'];
+            $articles = ['Spielablauf.php', 'Self-Hosting.php', 'Konfiguration.php', 'Downloads.php'];
             ?>
 
             <?php foreach ($articles as $article) { ?>
-                
                 <li>
                     <a class="header-counter-reset" href="<?= "/documentation/?article=$article"; ?>">
                         <?php
