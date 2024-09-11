@@ -38,6 +38,10 @@
     max-width: 1000px;
 }
 
+footer {
+    margin-left: calc(var(--documentation-side-nav-width) + 32px);
+}
+
 .documentation-content p {
     font-size: 14px;
 }

@@ -20,10 +20,7 @@ html {
 }
 
 body {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 64px;
+    margin: 0;
     background-color: var(--c1);
 }
 
@@ -125,6 +122,29 @@ header nav ul li h1 {
 header nav ul li img {
     width: 24px;
     vertical-align: text-bottom;
+}
+
+footer {
+    color: var(--c3);
+    background-color: var(--c1);
+    border: var(--default-border);
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 16px 8px;
+    text-align: center;
+    box-shadow: 0px 0px 5px black;
+    margin-top: 32px;
+}
+
+footer a {
+    color: var(--c4);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--c4);
+    text-decoration: underline;
 }
 
 #server-address {
@@ -329,7 +349,6 @@ header nav ul li img {
     header nav ul li img {
         width: 32px;
     }
-
     
     .container {
         border-radius: 0;

@@ -13,8 +13,8 @@
     <header>
         <?php
         $root = dirname(__FILE__);
-        include "$root/navigation/navigation.php";
         include $_SERVER['DOCUMENT_ROOT'].'/env.php';
+        include "$root/navigation/navigation.php";
         
         ?>
     </header>
@@ -25,7 +25,7 @@
         <div class="brief">
             <h1>Minecraft-Walo</h1>
             <button id="server-address" onclick="copyServerAddress()">
-                Server-Adresse: <span id="server-address-text"><?= Env::$server_address ?></span>
+                Server-Adresse: <span id="server-address-text"><?= Env::$mc_server_address ?></span>
                 <img src="assets/icon-copy.png" alt="copy" style="width: 16px;">
             </button>
             <p>In Walo bildest du Teams und beweist dich gegen Andere im PVP-Kampf.</p>
@@ -140,6 +140,8 @@
             document.execCommand("copy");
         }
     </script>
+
+    <?php include 'footer.php' ?>
 </body>
 
 </html>

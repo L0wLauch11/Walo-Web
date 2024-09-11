@@ -1,6 +1,6 @@
 <?php
 
-class DocumentationUtil {
+class Util {
     public static function renderPhp($path) {
         ob_start();
         include $path;

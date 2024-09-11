@@ -7,3 +7,4 @@ FIXED_OWNERSHIP_OK
 robots.txt
 walo-plugin/
 .vs/
+env.php

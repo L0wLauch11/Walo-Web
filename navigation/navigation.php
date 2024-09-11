@@ -3,7 +3,7 @@
 <nav>
     <ul>
         <li class="widescreen-only">
-            <h1>Walo</h1>
+            <h1><?= Env::$website_name; ?></h1>
         </li>
 
         <?= NavigationLink::generate('/index.php', 'Home', '/assets/icon-home.png'); ?>

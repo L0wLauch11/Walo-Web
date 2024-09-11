@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/leaderboards.css">
-    <title>Walo</title>
+    <title>Walo Leaderboards</title>
 </head>
 
 <body>
     <header>
         <?php
         $root = dirname(__FILE__);
+        include "$root/env.php";
         include "$root/navigation/navigation.php";
         ?>
     </header>

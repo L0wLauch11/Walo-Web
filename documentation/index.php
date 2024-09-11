@@ -16,9 +16,10 @@
         error_reporting(E_ALL);
 
         $root = $_SERVER['DOCUMENT_ROOT'];
+        include_once "$root/env.php";
         include_once "$root/navigation/navigation.php";
         
-        include_once 'DocumentationUtil.class.php';
+        include_once "$root/Util.class.php";
         include_once 'Heading.class.php';
         include_once 'DownloadsTable.class.php';
 
@@ -40,7 +41,7 @@
                         // related - https://stackoverflow.com/questions/14648442/domdocumentloadhtml-warning-htmlparseentityref-no-name-in-entity
                         libxml_use_internal_errors(true);
                         
-                        $renderedHtml = DocumentationUtil::renderPhp("$articlesFolder/$article");
+                        $renderedHtml = Util::renderPhp("$articlesFolder/$article");
                         $dom = new DOMDocument();
                         $dom->loadHTML(
                             // Encoding somehow being parsed incorrectly by this function
@@ -86,5 +87,7 @@
         }
         ?>
     </main>
+
+    <?php include "$root/footer.php"; ?>
 </body>
 </html>

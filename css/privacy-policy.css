@@ -1,0 +1,7 @@
+.privacy-policy-container p {
+    font-size: 16px;
+}
+
+.privacy-policy-container {
+    color: var(--c4);
+}
