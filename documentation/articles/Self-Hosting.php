@@ -75,7 +75,7 @@ Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="?a
 <?= Heading::generate('h3', 'Website'); ?>
 <p>Dieser Teil setzt voraus, dass du <a href="https://ubuntu.com/download/server">Ubuntu Server</a> 24.04 verwendest. Du kannst auch die Website auf dem selben VPS / Computer laufen lassen, auf dem auch der Minecraft-Server läuft.</p>
 
-<p>Installiere <span class="code-inline">git</span>, <span class="code-inline">caddy</span>, <span class="code-inline">php-fpm</span>, <span class="code-inline">php-mbstring</span>, <span class="code-inline">php-dom</span> und <span class="code-inline">php-mysql</span> um die Website einrichten zu können:</p>
+<p>Installiere <span class="code-inline">git</span>, <span class="code-inline"><a href="https://caddyserver.com/docs/install#debian-ubuntu-raspbian">caddy</a></span>, <span class="code-inline">php-fpm</span>, <span class="code-inline">php-mbstring</span>, <span class="code-inline">php-dom</span> und <span class="code-inline">php-mysql</span> um die Website einrichten zu können:</p>
 <pre class="code">
 sudo apt install git caddy php-fpm php-mbstring php-dom php-mysql
 </pre>
@@ -106,6 +106,9 @@ DEINE_DOMAIN {
 
 <p>Ersetze <span class="code-inline">DEINE_DOMAIN</span> mit einer Domain, die du dir Beispielsweise auf <a href="https://freedns.afraid.org/">FreeDNS</a> registriert hast.</p>
 <p>Und schon kannst du die Website aufrufen unter <span class="code-inline">https://DEINE_DOMAIN/</span>!</p>
+
+<?= Heading::generate('h4', 'env.php'); ?>
+<p>Du musst noch <span class="code-inline">env.example.php</span> im Website Ordner zu <span class="code-inline">env.php</span> kopieren und die paar Variablen innerhalb der Datei auf deine Wünsche anpassen.</p>
 
 <?= Heading::generate('h4', 'MySQL Datenbank für Leaderboards'); ?>
 <p>Nachdem die Website problemlos läuft, kannst du auch noch die Leaderboards einrichten. Installiere dafür einen MySQL Server mit Adminer. Folgendes Tutorial bringt dir bei, wie du das einrichten kannst: <a href="https://www.makeuseof.com/how-to-install-adminer-on-ubuntu/">https://www.makeuseof.com/how-to-install-adminer-on-ubuntu/</a>.</p>

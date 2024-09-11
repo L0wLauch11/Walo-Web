@@ -1,6 +1,6 @@
 # Datenschutzerklärung
 
-Zuletzt aktualisiert: 11.09.2024
+Zuletzt aktualisiert: <?= date('F j, Y', filemtime($_SERVER['DOCUMENT_ROOT'].'/privacy-policy/privacy-policy.md.php')); ?>
 
 ## Allgemeine Informationen
 
