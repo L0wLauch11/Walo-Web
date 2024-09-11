@@ -125,7 +125,7 @@
 
     </div>
 
-    <input type="text" value="<?= $server_address ?>" id="server-address-input" style="opacity: 0%;">
+    <input type="text" value="<?= $server_address ?>" id="server-address-input" style="display: none;">
 
     <script type="text/javascript">
         function copyServerAddress() {

@@ -20,6 +20,18 @@ Die erhobenen Daten dienen folgenden Zwecken:
 - **Nutzungsdaten (IP-Adressen):** Diese Daten werden gesammelt, um die technische Funktionalität der Website zu gewährleisten und aus Sicherheitsgründen.
 - **Minecraft-Daten (Benutzernamen und UUIDs):** Diese Daten werden gespeichert, um Ranglisten (Leaderboards) zu erstellen und auf der Website anzuzeigen.
 
+<?php if (Env::$adsense_enabled): ?>
+## Google AdSense
+
+Unsere Website verwendet Google AdSense, einen Dienst zum Einbinden von Werbeanzeigen der Google LLC („Google“). Google AdSense verwendet sogenannte „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung der Website ermöglichen. Darüber hinaus verwendet Google AdSense zur Sammlung von Informationen sogenannte Web Beacons (unsichtbare Grafiken). Diese Web Beacons ermöglichen es, einfache Aktionen wie den Besucherverkehr auf der Website zu analysieren.
+
+Die durch Cookies und Web Beacons erzeugten Informationen über die Nutzung dieser Website (einschließlich Ihrer IP-Adresse) werden an einen Server von Google in den USA übertragen und dort gespeichert. Google nutzt diese Informationen, um Ihre Nutzung der Website im Hinblick auf die Anzeigen auszuwerten, Berichte über die Websiteaktivitäten und Anzeigen für Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen.
+
+Die Verarbeitung der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, da wir ein berechtigtes Interesse daran haben, durch Werbeanzeigen die Kosten für den Betrieb der Website zu decken.
+
+Weitere Informationen finden Sie in der [Datenschutzerklärung von Google](https://policies.google.com/privacy).
+<?php endif; ?>
+
 ## Rechtsgrundlage der Verarbeitung
 
 Die Verarbeitung der IP-Adressen erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO aufgrund unseres berechtigten Interesses an der Aufrechterhaltung der technischen Funktionsfähigkeit und Sicherheit der Website.
@@ -49,7 +61,6 @@ Zur Ausübung dieser Rechte können Sie sich jederzeit an uns wenden (siehe Kont
 Wenn das Unternehmen an einer Fusion, einer Übernahme oder einem Verkauf von Vermögenswerten beteiligt ist, können Ihre persönlichen Daten übertragen werden. Wir werden Sie darüber informieren, bevor Ihre persönlichen Daten übertragen werden und einer anderen Datenschutzrichtlinie unterliegen.
 
 #### Strafverfolgung
-
 Unter bestimmten Umständen kann das Unternehmen verpflichtet sein, Ihre persönlichen Daten offenzulegen, wenn dies gesetzlich vorgeschrieben ist oder als Antwort auf berechtigte Anfragen von Behörden (z. B. einem Gericht oder einer Regierungsbehörde).
 
 #### Andere gesetzliche Anforderungen

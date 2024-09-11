@@ -52,7 +52,7 @@
             $conn->query($sql);
 
             // Fetch leaderboards from DB
-            $sql = "SELECT * FROM walo";
+            $sql = "SELECT * FROM walo LIMIT 100";
             $result = $conn->query($sql);
 
             // If entries exist
@@ -139,6 +139,8 @@
         $conn->close();
         ?>
     </div>
+
+    <?php include 'footer.php' ?>
 </body>
 
 </html>
