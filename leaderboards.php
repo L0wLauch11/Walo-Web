@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<?php
+$root = $_SERVER['DOCUMENT_ROOT'];
+include "$root/env.php";
+?>
+
 <head>
     <link rel="shortcut icon" type="assets/walo-small.png" href="favicon.ico" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/leaderboards.css">
-    <title>Walo Leaderboards</title>
+    <title><?= Env::$website_name; ?> Leaderboards</title>
 </head>
 
 <body>
     <header>
-        <?php
-        $root = dirname(__FILE__);
-        include "$root/env.php";
-        include "$root/navigation/navigation.php";
-        ?>
+        <?php include "$root/navigation/navigation.php"; ?>
     </header>
 
     <?php

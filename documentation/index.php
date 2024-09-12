@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+$root = $_SERVER['DOCUMENT_ROOT'];
+$articlesFolder = "$root/documentation/articles";
+
+include_once "$root/env.php";
+include_once "$root/Util.class.php";
+include_once 'Heading.class.php';
+include_once 'DownloadsTable.class.php';
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walo Dokumentation</title>
+    <title><?= Env::$website_name; ?> Dokumentation</title>
     
     <link rel="stylesheet" href="../css/documentation.css">
     <link rel="stylesheet" href="../css/master.css">
 </head>
+
 <body>
     <header>
-        <?php
-        ini_set('display_errors', '1');
-        ini_set('display_startup_errors', '1');
-        error_reporting(E_ALL);
-
-        $root = $_SERVER['DOCUMENT_ROOT'];
-        include_once "$root/env.php";
-        include_once "$root/navigation/navigation.php";
-        
-        include_once "$root/Util.class.php";
-        include_once 'Heading.class.php';
-        include_once 'DownloadsTable.class.php';
-
-        $articlesFolder = $_SERVER['DOCUMENT_ROOT'].'/documentation/articles';
-        ?>
+        <?php include_once "$root/navigation/navigation.php"; ?>
     </header>
 
     <div class="background"></div>
