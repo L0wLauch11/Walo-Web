@@ -99,6 +99,6 @@ Wir empfehlen Ihnen, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu
 
 ## Kontakt
 
-Falls Fragen ins bezüglich dieser Datenschutzerklärung aufgekommen sind, kann diese E-Mail Adresse kontaktiert werden:
+Falls Fragen bezüglich dieser Datenschutzerklärung aufgekommen sind, kann diese E-Mail Adresse kontaktiert werden:
 
 - <?= Env::$contact_address; ?>

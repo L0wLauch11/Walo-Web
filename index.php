@@ -26,7 +26,7 @@
             <h1>Minecraft-Walo</h1>
             <button id="server-address" onclick="copyServerAddress()">
                 Server-Adresse: <span id="server-address-text"><?= Env::$mc_server_address ?></span>
-                <img src="assets/icon-copy.png" alt="copy" style="width: 16px;">
+                <img src="assets//icon/icon-copy.png" alt="copy" style="width: 16px;">
             </button>
             <p>In Walo bildest du Teams und beweist dich gegen Andere im PVP-Kampf.</p>
         </div>
@@ -40,27 +40,27 @@
                 <div class="spacer"></div>
 
                 <li>
-                    <img src="assets/mc-logo-minimal.png" alt="mc-logo">
+                    <img src="assets/icon/mc-logo-minimal.png" alt="mc-logo">
                     <b>Minecraft Version</b>: 1.8
                 </li>
 
                 <li>
-                    <img src="assets/clock.png" alt="clock">
+                    <img src="assets/icon/clock.png" alt="clock">
                     <b>Spieldauer</b>: zirka 3 Stunden
                 </li>
 
                 <li>
-                    <img src="assets/team.png" alt="people">
+                    <img src="assets/icon/team.png" alt="people">
                     <b>Spieler</b>: bis zu 50
                 </li>
 
                 <li>
-                    <img src="assets/sword.png" alt="sword">
+                    <img src="assets/icon/sword.png" alt="sword">
                     <b>Combat-Logging</b>: man wird automatisch gebannt
                 </li>
 
                 <!-- <li>
-                    <img src="assets/calendar.png" alt="calendar">
+                    <img src="/assets/icon/calendar.png" alt="calendar">
                     <b>Termine</b>: auf Discord
                 </li> -->
             </ul>
@@ -87,23 +87,23 @@
             </ul>
 
             <div class="info-container">
-                <img src="assets/screenshot-info.png" alt="">
+                <img src="assets/screenshot/screenshot-info.png" alt="">
                 <p>Vor dem Spielstart werden die wichtigsten Informationen im Chat angezeigt</p>
             </div>
 
             <div class="info-container">
                 <p>Während des Spiels werden am Scoreboard Infos angezeigt</p>
-                <img src="assets/screenshot-scoreboard.png" alt="">
+                <img src="assets/screenshot/screenshot-scoreboard.png" alt="">
             </div>
 
             <div class="info-container">
-                <img src="assets/screenshot-mine.png" alt="">
+                <img src="assets/screenshot/screenshot-mine.png" alt="">
                 <p>Das Ziel des Spiels ist es gute Sachen zu farmen...</p>
             </div>
 
             <div class="info-container" id="last-info-screenshot">
                 <p>... und am Ende alle auszuschalten</p>
-                <img src="assets/screenshot-armor.png" alt="">
+                <img src="assets/screenshot/screenshot-armor.png" alt="">
             </div>
         </div>
 

@@ -62,7 +62,7 @@ class DownloadsTable {
                     <td>{$entry->getFileDate()}</td>
                     <td>
                         <a href="{$entry->getFileUrl()}">
-                            <img src="/assets/icon-download.png" alt="">
+                            <img src="/assets//icon/icon-download.png" alt="">
                         </a>
                     </td>
                 </tr>
