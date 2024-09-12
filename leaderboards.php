@@ -84,8 +84,6 @@
                         $placement = "id='third-place'";
                     }
 
-                    $i++;
-
                     $name = $row['NAME'];
                     $wins = $row['WINS'];
                     $kills = $row['KILLS'];
@@ -103,6 +101,8 @@
                             <td $placement class='leaderboard-stat rightmost'>$playcount</td>
                         </tr>
                     ";
+
+                    $i++;
                 }
                 echo "</table>";
             } else {
