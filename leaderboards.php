@@ -27,7 +27,7 @@
     }
     ?>
 
-    <p id="heading">Leaderboards</p>
+    <div class="background"></div>
 
     <div class="container">
         <form action="leaderboards.php">

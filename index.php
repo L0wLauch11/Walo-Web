@@ -19,7 +19,7 @@
         ?>
     </header>
 
-    <p id="heading">Über das Projekt</p>
+    <div class="background"></div>
 
     <div class="container">
         <div class="brief">

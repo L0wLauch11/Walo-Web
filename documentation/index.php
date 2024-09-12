@@ -27,6 +27,8 @@
         ?>
     </header>
 
+    <div class="background"></div>
+
     <div class="documentation-side-nav">
         <span style="font-size: 16px;" class="mobile-only warning"><br>Die Dokumentation wird am besten auf einem großen Bildschirm dargestellt.</span>
         <ul>
@@ -72,22 +74,24 @@
         </ul>
     </div>
 
-    <main class="documentation-content">
-        <?php
-        if (isset($_GET['article'])) {
-            // Security Risk: would otherwise allow stealing credentials!
-            // e. g. "?article=../../assets/secrets/credentials.ini" would actually output the credentials.ini file!
-            if (str_contains($_GET['article'], '..')) {
-                include $articlesFolder.'/'.$articles[0];
+    <main class="documentation-main">
+        <article class="documentation-content">
+            <?php
+            if (isset($_GET['article'])) {
+                // Security Risk: would otherwise allow stealing credentials!
+                // e. g. "?article=../../assets/secrets/credentials.ini" would actually output the credentials.ini file!
+                if (str_contains($_GET['article'], '..')) {
+                    include $articlesFolder.'/'.$articles[0];
+                } else {
+                    include $articlesFolder.'/'.$_GET['article'];
+                }
             } else {
-                include $articlesFolder.'/'.$_GET['article'];
+                include $articlesFolder.'/'.$articles[0];
             }
-        } else {
-            include $articlesFolder.'/'.$articles[0];
-        }
-        ?>
+            ?>
+        </article>
+        
+        <?php include "$root/footer.php"; ?>
     </main>
-
-    <?php include "$root/footer.php"; ?>
 </body>
 </html>

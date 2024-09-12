@@ -6,18 +6,20 @@
     padding: 48px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: var(--color-text);
     display: block;
     transition: 0.3s;
     height: 100vh;
     width: var(--documentation-side-nav-width);
-    background-color: color-mix(in srgb, var(--c2) 80%, black);
+    background-color: var(--color-black-alpha25);
     box-shadow: 0px 5px 5px black;
     float: left;
     top: 0px;
     margin-right: 16px;
     position: fixed;
     overflow-y: scroll;
+    backdrop-filter: blur(8px);
+    z-index: 1;
 }
 
 .documentation-side-nav ul {
@@ -31,15 +33,26 @@
     font-family: monospace;
 }
 
+.documentation-main {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-black-alpha60);
+    backdrop-filter: blur(8px);
+    box-sizing: unset;
+}
+
 .documentation-content {
     display: block;
-    color: var(--c4);
+    color: var(--color-text);
     margin-left: calc(var(--documentation-side-nav-width) + 58px);
     max-width: 1000px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 footer {
     margin-left: calc(var(--documentation-side-nav-width) + 32px);
+    position: relative;
+    z-index: 100;
 }
 
 .documentation-content p {
@@ -81,7 +94,7 @@ h1, h2, h3, h4 {
     margin: 4px;
     text-decoration: none;
     display: block;
-    color: var(--c3);
+    color: white;
 }
 
 .side-nav-subheading:hover {
@@ -106,17 +119,17 @@ h1, h2, h3, h4 {
 
 .side-nav-subheading-h2::before {
     content: counter(a) ".";
-    color: var(--c4);
+    color: var(--color-text);
 }
 
 .side-nav-subheading-h3::before {
     content: counter(a) "." counter(b) ".";
-    color: var(--c4);
+    color: var(--color-text);
 }
 
 .side-nav-subheading-h4::before {
     content: counter(a) "." counter(b) "." counter(c) ".";
-    color: var(--c4);
+    color: var(--color-text);
 }
 
 /* In article headings */
@@ -152,7 +165,7 @@ h4::before {
 
 .code, .code-inline {
     margin-left: 16px;
-    background-color: var(--c2);
+    background-color: var(--color-black-alpha25);
     padding: 4px 8px;
     border-radius: 4px;
     width: fit-content;
@@ -181,7 +194,7 @@ h4::before {
 }
 
 .downloads-table {
-    background-color: var(--c1);
+    background-color: var(--color-black-alpha25);
     border-collapse: collapse;
 }
 
@@ -190,7 +203,7 @@ h4::before {
 }
 
 .downloads-table .row-darker {
-    background-color: var(--c2);
+    background-color: var(--color-black-alpha60);
 }
 
 .downloads-table th, .downloads-table td {
@@ -201,6 +214,7 @@ h4::before {
 
 @media only screen and (max-width: 1000px) {
     .documentation-side-nav {
+        background-color: rgba(0, 0, 0, 0.80);
         height: fit-content;
         float: none;
         position: initial;
@@ -212,7 +226,7 @@ h4::before {
 
     .documentation-content {
         display: block;
-        color: var(--c4);
+        color: var(--color-text);
         margin-left: 16px;
         margin-right: 16px;
     }

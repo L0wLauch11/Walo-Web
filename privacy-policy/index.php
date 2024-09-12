@@ -18,6 +18,8 @@
         ?>
     </header>
 
+    <div class="background"></div>
+
     <main class="container privacy-policy-container">
         <?php
         include_once 'parsedown-1.7.4/Parsedown.php';

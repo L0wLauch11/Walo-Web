@@ -1,6 +1,6 @@
 #rankings {
     width: 100%;
-    border: solid;
+    border: none;
 }
 
 #rankings tr {
@@ -19,14 +19,14 @@
 }
 
 .leaderboard-stat {
-    color: var(--c4);
+    color: var(--color-text);
 }
 
 .row-darker td {
-    background-color: var(--c1);
+    background-color: var(--color-black-alpha25);
     border: solid;
     border-collapse: collapse;
-    border-color: var(--c1);
+    border-color: var(--color-black-alpha25);
     border-radius: 4px;
     border-width: 0px;
 }
@@ -62,11 +62,11 @@
 
 .sort-by-selector {
     text-align: left;
-    color: var(--c4);
+    color: var(--color-text);
 }
 
 .sort-by-selector select {
-    background-color: var(--c1);
+    background-color: var(--color-black-alpha25);
     border: var(--default-border);
     padding: 0 1em 0 0;
     margin: 0;
@@ -79,15 +79,20 @@
     text-align: center;
     padding: 0.25em 0.5em;
     cursor: pointer;
-    color: var(--c4);
+    color: var(--color-text);
+    transition: 0.3s;
+}
+
+.sort-by-selector select:hover {
+    background-color: var(--color-white-alpha075);
 }
 
 .button {
     border: solid;
     border-collapse: collapse;
-    border-color: var(--c1);
+    border-color: var(--color-black-alpha25);
     border-width: 0px;
-    color: var(--c4);
+    color: var(--color-text);
     border-radius: 4px;
     padding: 8px 16px;
     transition: 0.3s;
@@ -97,5 +102,5 @@
 }
 
 .button:hover {
-    background-color: var(--c5);
+    background-color: var(--color-black-alpha25);
 }
