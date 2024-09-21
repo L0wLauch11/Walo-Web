@@ -85,19 +85,13 @@ switch ($operation) {
         break;
 
     case 'createplayer':
-        $sql_get_kills = "SELECT * FROM walo WHERE UUID='$minecraft_uuid'";
-
-        $result = $conn->query($sql_get_kills);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $kills = $row['KILLS'];
-            }
-        }
-
-        if (!isset($kills)) {
-            $sql = "INSERT INTO walo (UUID, NAME, KILLS, WINS, PLAYCOUNT) VALUES ('$minecraft_uuid', '$minecraft_name', 0, 0, 0)";
-            $result = $conn->query($sql);
-        }
+        $sql = "INSERT INTO walo (UUID, NAME, KILLS, WINS, PLAYCOUNT)
+            SELECT '$minecraft_uuid', '$minecraft_name', 0, 0, 0
+            WHERE NOT EXISTS (
+                SELECT 1 FROM walo WHERE UUID = '$minecraft_uuid'
+            )";
+        
+        $result = $conn->query($sql);
 
         echo 'Player created successfully';
         
