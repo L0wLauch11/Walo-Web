@@ -16,7 +16,7 @@ Am einfachsten ist es, wenn du dir dieses Server-Paket runterladest: <a href="?a
 
 <p>Es ist ein vorkonfigurierter Server mit ...</p>
 <ul>
-    <li><a href="https://papermc.io/">Paper 1.8.8</a> im <a href="https://docs.papermc.io/paper/anti-xray">Anti-XRay Modus 2</a></li>
+    <li><a href="https://github.com/hpfxd/PandaSpigot">PandaSpigot 1.8.8</a>, ein High-Performance Paper Fork für 1.8.8</li>
     <li>dem <a href="?article=Downloads.php#minecraftwaloplugin">Walo</a>-Plugin</li>
     <li><a href="?article=Downloads.php#walorestartcompanion">WaloRestartCompanion</a>, was den Server automatisch neustartet, wenn das Spiel zuende ist</li>
     <li><b>TerrainControl</b> so eingerichtet, dass keine Ozeane mehr generiert werden</li>

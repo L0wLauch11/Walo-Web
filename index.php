@@ -49,20 +49,24 @@ include "$root/env.php";
                     <b>Spieldauer</b>: zirka 3 Stunden
                 </li>
 
+                <?php if (Env::$discord_invite != null): ?>
+                    <li>
+                        <img src="/assets/icon/calendar.png" alt="calendar">
+                        <b>Termine</b>: auf <a style="color: mediumslateblue; font-weight: bold;" target="_blank" href="<?= Env::$discord_invite; ?>">Discord</a>
+                    </li>
+                <?php endif; ?>
+
                 <li>
                     <img src="assets/icon/team.png" alt="people">
                     <b>Spieler</b>: bis zu 50
                 </li>
 
-                <li>
-                    <img src="assets/icon/sword.png" alt="sword">
-                    <b>Combat-Logging</b>: man wird automatisch gebannt
-                </li>
-
-                <!-- <li>
-                    <img src="/assets/icon/calendar.png" alt="calendar">
-                    <b>Termine</b>: auf Discord
-                </li> -->
+                <!-- Is this really important to know on the homepage?
+                    <li>
+                        <img src="assets/icon/sword.png" alt="sword">
+                        <b>Combat-Logging</b>: man wird automatisch gebannt
+                    </li> 
+                -->
             </ul>
 
             <div class="spacer"></div>
