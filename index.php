@@ -129,7 +129,7 @@ include "$root/env.php";
 
     </div>
 
-    <input type="text" value="<?= $server_address ?>" id="server-address-input" style="display: none;">
+    <input type="text" value="<?= $mc_server_address; ?>" id="server-address-input" style="display: none;">
 
     <script type="text/javascript">
         function copyServerAddress() {
