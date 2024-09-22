@@ -8,4 +8,5 @@ class Env {
     public static $contact_address = "your-contact-email-address"; // The E-Mail address where users can contact you
     public static $adsense_enabled = false; // Whether your website serves ads through adsense or not
     public static $discord_invite = null; // Set to 'null' if you don't have a discord
+    public static $use_minecraft_server_status_api = false; // Using it could increase site load times
 }

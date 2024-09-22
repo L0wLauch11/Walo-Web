@@ -194,19 +194,12 @@ include "$root/Util.class.php";
 
     </div>
 
-    <input type="text" value="<?= $mc_server_address; ?>" id="server-address-input" style="display: none;">
+    <span type="text" id="server-address-input" style="display: none;"><?= Env::$mc_server_address; ?></span>
 
     <script type="text/javascript">
         function copyServerAddress() {
-            /* Get the text field */
-            var copyText = document.getElementById("server-address-input");
-
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
+            let copyText = document.getElementById("server-address-input");
+            navigator.clipboard.writeText(copyText.textContent);
         }
     </script>
 
