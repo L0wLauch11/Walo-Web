@@ -12,10 +12,10 @@
         
         <?php /* Donation link is a bit different from the others */ ?>
         <li class="donation-link">
-                <a href='https://ko-fi.com/lowlauch' target="_blank">
-                    <img src="/assets/icon/icon-donate.png" alt="">
-                    <span class='widescreen-only'>Spenden</span>
-                </a>
+            <a href='https://ko-fi.com/lowlauch' target="_blank">
+                <img src="/assets/icon/icon-donate.png" alt="">
+                <span class='widescreen-only'>Spenden</span>
+            </a>
         </li>
     </ul>
 </nav>

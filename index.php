@@ -4,6 +4,7 @@
 <?php
 $root = $_SERVER['DOCUMENT_ROOT'];
 include "$root/env.php";
+include "$root/Util.class.php";
 ?>
 
 <head>
@@ -24,10 +25,74 @@ include "$root/env.php";
     <div class="container">
         <div class="brief">
             <h1>Minecraft-Walo</h1>
-            <button id="server-address" onclick="copyServerAddress()">
-                Server-Adresse: <span id="server-address-text"><?= Env::$mc_server_address ?></span>
-                <img src="assets//icon/icon-copy.png" alt="copy" style="width: 16px;">
-            </button>
+
+            <?php if (Env::$use_minecraft_server_status_api): ?>
+                <?php
+                function getMcServerStatusJson($mcServerStatusCacheFile) {
+                    $mcServerStatusJson = Util::curl('https://api.mcsrvstat.us/3/'.Env::$mc_server_address);
+                    $mcServerStatus = json_decode($mcServerStatusJson, true);
+
+                    file_put_contents($mcServerStatusCacheFile, $mcServerStatusJson);
+
+                    return $mcServerStatus;
+                }
+
+                $mcServerStatusCache = "$root/mc-server-status-cache/".Env::$mc_server_address;
+
+                if (file_exists($mcServerStatusCache)) {
+                    $fiveMinutes = 300000;
+                    if (time() - filemtime($mcServerStatusCache) > $fiveMinutes) {
+                        $mcServerStatus = getMcServerStatusJson($mcServerStatusCache);
+                    }
+
+                    $mcServerStatus = json_decode(file_get_contents($mcServerStatusCache), true);
+                } else {
+                    $mcServerStatus = getMcServerStatusJson($mcServerStatusCache);
+                }
+
+                if ($mcServerStatus['online']) {
+                    $motd = "";
+                    foreach ($mcServerStatus['motd']['html'] as $motdLine) {
+                        $motd .= <<<HTML
+                            <div style="font-size: 15px;">
+                                {$motdLine}
+                            </div>
+                        HTML;
+                    }
+
+                    print <<<HTML
+                        <button style="font-size: 18px; padding-bottom: 4px;" id="server-address" onclick="copyServerAddress()">
+                            <div style="margin-right: 8px; float:left; display: inline-block; vertical-align: top;">
+                                <img style="display: inline-block;" src="{$mcServerStatus['icon']}" alt="">
+                            </div>
+
+                            <div style="text-align: left; width: fit-content;">
+                                <span style="font-size: 18px;" id="server-address-text">{$mcServerStatus['hostname']}</span>
+                                <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
+                                <span style="float: right; margin-right: 4px;">{$mcServerStatus['players']['online']} / {$mcServerStatus['players']['max']}</span>
+
+                                <div style="display: inline-block; font-family: monospace; height: fit-content;">
+                                    <span style="inline-block;">{$motd}</span>
+                                </div>    
+                            </div>
+                        </button>
+                    HTML;
+                } else {
+                    print <<<HTML
+                        <button id="server-address" onclick="copyServerAddress()">
+                            <span id="server-address-text">{Env::$mc_server_address} ist offline!</span>
+                            <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
+                        </button>
+                    HTML;
+                }
+                ?>
+            <?php else: ?>
+                <button id="server-address" onclick="copyServerAddress()">
+                    <span id="server-address-text"><?= Env::$mc_server_address; ?></span>
+                    <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
+                </button>
+            <?php endif; ?>
+
             <p>In Walo bildest du Teams und beweist dich gegen Andere im PVP-Kampf.</p>
         </div>
 
@@ -145,7 +210,7 @@ include "$root/env.php";
         }
     </script>
 
-    <?php include 'footer.php' ?>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
