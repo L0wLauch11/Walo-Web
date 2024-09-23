@@ -63,7 +63,7 @@ include "$root/Util.class.php";
                     print <<<HTML
                         <button style="font-size: 18px; padding-bottom: 4px;" id="server-address" onclick="copyServerAddress()">
                             <div style="margin-right: 8px; float:left; display: inline-block; vertical-align: top;">
-                                <img style="display: inline-block;" src="{$mcServerStatus['icon']}" alt="">
+                                <img style="border-radius: 4px; display: inline-block;" src="{$mcServerStatus['icon']}" alt="">
                             </div>
 
                             <div style="text-align: left; width: fit-content;">
