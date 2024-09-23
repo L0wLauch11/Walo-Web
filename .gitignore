@@ -8,3 +8,6 @@ robots.txt
 walo-plugin/
 .vs/
 env.php
+
+mc-server-status-cache/*
+!mc-server-status-cache/.gitkeep

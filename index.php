@@ -40,7 +40,8 @@ include "$root/Util.class.php";
                 $mcServerStatusCache = "$root/mc-server-status-cache/".Env::MC_SERVER_ADDRESS;
 
                 if (file_exists($mcServerStatusCache)) {
-                    $fiveMinutes = 300000;
+                    $fiveMinutes = 300;
+                    
                     if (time() - filemtime($mcServerStatusCache) > $fiveMinutes) {
                         $mcServerStatus = getMcServerStatusJson($mcServerStatusCache);
                     }
@@ -78,9 +79,11 @@ include "$root/Util.class.php";
                         </button>
                     HTML;
                 } else {
+                    $serverAddress = Env::MC_SERVER_ADDRESS;
+
                     print <<<HTML
                         <button id="server-address" onclick="copyServerAddress()">
-                            <span id="server-address-text">{Env::MC_SERVER_ADDRESS} ist offline!</span>
+                            <span id="server-address-text">{$serverAddress}</span> ist <span style="color: red;">offline</span>!
                             <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                         </button>
                     HTML;
