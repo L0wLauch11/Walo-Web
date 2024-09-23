@@ -3,10 +3,10 @@
 // Copy this file to 'env.php'
 
 class Env {
-    public static $mc_server_address = "your-minecraft-server-address"; // Change to whatever your minecraft-servers address is
-    public static $website_name = "your-website-name"; // Whatever you want to call this website
-    public static $contact_address = "your-contact-email-address"; // The E-Mail address where users can contact you
-    public static $adsense_enabled = false; // Whether your website serves ads through adsense or not
-    public static $discord_invite = null; // Set to 'null' if you don't have a discord
-    public static $use_minecraft_server_status_api = false; // Using it could increase site load times
+    const MC_SERVER_ADDRESS = "your-minecraft-server-address"; // Change to whatever your minecraft-servers address is
+    const WEBSITE_NAME = "your-website-name"; // Whatever you want to call this website
+    const CONTACT_ADDRESS = "your-email-address"; // The E-Mail address where users can contact you
+    const ADSENSE_ENABLED = false; // Whether your website serves ads through adsense or not
+    const DISCORD_INVITE = null; // Set to 'null' if you don't have a discord 
+    const USE_MINECRAFT_SERVER_STATUS_API = true; // Enables the minecraft server widget on the homepage (could increase site loadtimes)
 }

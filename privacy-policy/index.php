@@ -13,7 +13,7 @@ include "$root/Util.class.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/privacy-policy.css">
-    <title><?= Env::$website_name; ?> Privacy Policy</title>
+    <title><?= Env::WEBSITE_NAME; ?> Privacy Policy</title>
 </head>
 
 <body>

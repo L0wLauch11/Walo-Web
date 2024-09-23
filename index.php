@@ -12,7 +12,7 @@ include "$root/Util.class.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
-    <title><?= Env::$website_name; ?></title>
+    <title><?= Env::WEBSITE_NAME; ?></title>
 </head>
 
 <body>
@@ -26,10 +26,10 @@ include "$root/Util.class.php";
         <div class="brief">
             <h1>Minecraft-Walo</h1>
 
-            <?php if (Env::$use_minecraft_server_status_api): ?>
+            <?php if (Env::USE_MINECRAFT_SERVER_STATUS_API): ?>
                 <?php
                 function getMcServerStatusJson($mcServerStatusCacheFile) {
-                    $mcServerStatusJson = Util::curl('https://api.mcsrvstat.us/3/'.Env::$mc_server_address);
+                    $mcServerStatusJson = Util::curl('https://api.mcsrvstat.us/3/'.Env::MC_SERVER_ADDRESS);
                     $mcServerStatus = json_decode($mcServerStatusJson, true);
 
                     file_put_contents($mcServerStatusCacheFile, $mcServerStatusJson);
@@ -37,7 +37,7 @@ include "$root/Util.class.php";
                     return $mcServerStatus;
                 }
 
-                $mcServerStatusCache = "$root/mc-server-status-cache/".Env::$mc_server_address;
+                $mcServerStatusCache = "$root/mc-server-status-cache/".Env::MC_SERVER_ADDRESS;
 
                 if (file_exists($mcServerStatusCache)) {
                     $fiveMinutes = 300000;
@@ -80,7 +80,7 @@ include "$root/Util.class.php";
                 } else {
                     print <<<HTML
                         <button id="server-address" onclick="copyServerAddress()">
-                            <span id="server-address-text">{Env::$mc_server_address} ist offline!</span>
+                            <span id="server-address-text">{Env::MC_SERVER_ADDRESS} ist offline!</span>
                             <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                         </button>
                     HTML;
@@ -88,7 +88,7 @@ include "$root/Util.class.php";
                 ?>
             <?php else: ?>
                 <button id="server-address" onclick="copyServerAddress()">
-                    <span id="server-address-text"><?= Env::$mc_server_address; ?></span>
+                    <span id="server-address-text"><?= Env::MC_SERVER_ADDRESS; ?></span>
                     <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                 </button>
             <?php endif; ?>
@@ -114,10 +114,10 @@ include "$root/Util.class.php";
                     <b>Spieldauer</b>: zirka 3 Stunden
                 </li>
 
-                <?php if (Env::$discord_invite != null): ?>
+                <?php if (Env::DISCORD_INVITE != null): ?>
                     <li>
                         <img src="/assets/icon/calendar.png" alt="calendar">
-                        <b>Termine</b>: auf <a style="color: mediumslateblue; font-weight: bold;" target="_blank" href="<?= Env::$discord_invite; ?>">Discord</a>
+                        <b>Termine</b>: auf <a style="color: mediumslateblue; font-weight: bold;" target="_blank" href="<?= Env::DISCORD_INVITE; ?>">Discord</a>
                     </li>
                 <?php endif; ?>
 
@@ -194,7 +194,7 @@ include "$root/Util.class.php";
 
     </div>
 
-    <span type="text" id="server-address-input" style="display: none;"><?= Env::$mc_server_address; ?></span>
+    <span type="text" id="server-address-input" style="display: none;"><?= Env::MC_SERVER_ADDRESS; ?></span>
 
     <script type="text/javascript">
         function copyServerAddress() {

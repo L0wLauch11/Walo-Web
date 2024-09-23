@@ -12,7 +12,7 @@ include "$root/env.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/leaderboards.css">
-    <title><?= Env::$website_name; ?> Leaderboards</title>
+    <title><?= Env::WEBSITE_NAME; ?> Leaderboards</title>
 </head>
 
 <body>

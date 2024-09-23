@@ -14,7 +14,7 @@ include_once 'DownloadsTable.class.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= Env::$website_name; ?> Dokumentation</title>
+    <title><?= Env::WEBSITE_NAME; ?> Dokumentation</title>
     
     <link rel="stylesheet" href="../css/documentation.css">
     <link rel="stylesheet" href="../css/master.css">

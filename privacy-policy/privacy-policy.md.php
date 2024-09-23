@@ -20,7 +20,7 @@ Die erhobenen Daten dienen folgenden Zwecken:
 - **Nutzungsdaten (IP-Adressen):** Diese Daten werden gesammelt, um die technische Funktionalität der Website zu gewährleisten und aus Sicherheitsgründen.
 - **Minecraft-Daten (Benutzernamen und UUIDs):** Diese Daten werden gespeichert, um Ranglisten (Leaderboards) zu erstellen und auf der Website anzuzeigen.
 
-<?php if (Env::$adsense_enabled): ?>
+<?php if (Env::ADSENSE_ENABLED): ?>
 ## Google AdSense
 
 Unsere Website verwendet Google AdSense, einen Dienst zum Einbinden von Werbeanzeigen der Google LLC („Google“). Google AdSense verwendet sogenannte „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse der Benutzung der Website ermöglichen. Darüber hinaus verwendet Google AdSense zur Sammlung von Informationen sogenannte Web Beacons (unsichtbare Grafiken). Diese Web Beacons ermöglichen es, einfache Aktionen wie den Besucherverkehr auf der Website zu analysieren.
@@ -101,4 +101,4 @@ Wir empfehlen Ihnen, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu
 
 Falls Fragen bezüglich dieser Datenschutzerklärung aufgekommen sind, kann diese E-Mail Adresse kontaktiert werden:
 
-- <?= Env::$contact_address; ?>
+- <?= Env::CONTACT_ADDRESS; ?>
