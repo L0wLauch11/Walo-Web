@@ -32,7 +32,15 @@ function tooltipPosition(e) {
         let parentLeft = element.parentElement.getBoundingClientRect().left;
         let parentTop = element.parentElement.getBoundingClientRect().top;
 
-        element.style.left = e.pageX - parentLeft + 'px';
-        element.style.top = e.pageY - parentTop + 'px';
+        let padding = 32;
+
+        let newX = Math.min(e.pageX, window.innerWidth - element.clientWidth - padding);
+        let newY = Math.min(e.pageY, window.innerHeight - element.clientHeight - padding);
+
+        newX -= parentLeft;
+        newY -= parentTop;
+
+        element.style.left = newX + 'px';
+        element.style.top = newY + 'px';
     }
 }

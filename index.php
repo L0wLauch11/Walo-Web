@@ -97,7 +97,7 @@ include "$root/Util.class.php";
                 ?>
             <?php else: ?>
                 <button id="server-address" onclick="copyServerAddress(this)">
-                    <span id="server-address-text"><?= Env::MC_SERVER_ADDRESS; ?></span>
+                    <span id="server-address-text"><span style="color: var(--color-text);">Minecraft Serveradresse:</span> <?= Env::MC_SERVER_ADDRESS; ?></span>
                     <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                 </button>
             <?php endif; ?>
