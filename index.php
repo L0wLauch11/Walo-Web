@@ -12,6 +12,7 @@ include "$root/Util.class.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/mc-server-widget.css">
     <title><?= Env::WEBSITE_NAME; ?></title>
 </head>
 
@@ -41,7 +42,7 @@ include "$root/Util.class.php";
 
                 if (file_exists($mcServerStatusCache)) {
                     $fiveMinutes = 300;
-                    
+
                     if (time() - filemtime($mcServerStatusCache) > $fiveMinutes) {
                         $mcServerStatus = getMcServerStatusJson($mcServerStatusCache);
                     }
@@ -62,19 +63,24 @@ include "$root/Util.class.php";
                     }
 
                     print <<<HTML
-                        <button style="font-size: 18px; padding-bottom: 4px;" id="server-address" onclick="copyServerAddress()">
-                            <div style="margin-right: 8px; float:left; display: inline-block; vertical-align: top;">
-                                <img style="border-radius: 4px; display: inline-block;" src="{$mcServerStatus['icon']}" alt="">
+                        <button id="server-address" onclick="copyServerAddress()">
+                            <span class="widescreen-only tooltip">
+                                <span class="tooltip-unclicked">Klicke&nbsp;zum&nbsp;kopieren!</span>
+                                <span class="tooltip-clicked">Kopiert!</span>
+                            </span>
+
+                            <div class="server-favicon-container">
+                                <img src="{$mcServerStatus['icon']}" alt="Server Favicon">
                             </div>
 
-                            <div style="text-align: left; width: fit-content;">
+                            <div class="server-description-container">
                                 <span style="font-size: 18px;" id="server-address-text">{$mcServerStatus['hostname']}</span>
-                                <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
-                                <span style="float: right; margin-right: 4px;">{$mcServerStatus['players']['online']} / {$mcServerStatus['players']['max']}</span>
+                                <img src="assets/icon/icon-copy.png" style="width: 16px;" alt="Copy Icon">
+                                <span class="server-online-counter">{$mcServerStatus['players']['online']} / {$mcServerStatus['players']['max']}</span>
 
-                                <div style="display: inline-block; font-family: monospace; height: fit-content;">
-                                    <span style="inline-block;">{$motd}</span>
-                                </div>    
+                                <div class="server-motd">
+                                    {$motd}
+                                </div>
                             </div>
                         </button>
                     HTML;
@@ -90,7 +96,7 @@ include "$root/Util.class.php";
                 }
                 ?>
             <?php else: ?>
-                <button id="server-address" onclick="copyServerAddress()">
+                <button id="server-address" onclick="copyServerAddress(this)">
                     <span id="server-address-text"><?= Env::MC_SERVER_ADDRESS; ?></span>
                     <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                 </button>
@@ -198,13 +204,7 @@ include "$root/Util.class.php";
     </div>
 
     <span type="text" id="server-address-input" style="display: none;"><?= Env::MC_SERVER_ADDRESS; ?></span>
-
-    <script type="text/javascript">
-        function copyServerAddress() {
-            let copyText = document.getElementById("server-address-input");
-            navigator.clipboard.writeText(copyText.textContent);
-        }
-    </script>
+    <script src="js/mc-server-widget.js" defer></script>
 
     <?php include 'footer.php'; ?>
 </body>

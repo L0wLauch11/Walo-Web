@@ -1,0 +1,65 @@
+#server-address {
+    font-size: 18px;
+    padding-bottom: 4px;
+    width: fit-content;
+    text-shadow: 1px 1px 1px black;
+    position: relative;
+}
+
+.tooltip {
+    opacity: 0%;
+
+    background-color: var(--color-black-alpha25);
+    border: var(--default-border);
+    border-width: 1px;
+    color: #fff;
+    text-align: left;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 14px;
+    min-width: fit-content;
+    width: fit-content;
+    display: block;
+    position: absolute !important;
+    box-sizing: border-box;
+
+    margin-left: 16px;
+    margin-top: 16px;
+    border-top-left-radius: 0;
+}
+
+.tooltip-clicked {
+    color: var(--color-accent);
+    display: none;
+}
+
+#server-address:hover .tooltip {
+    opacity: 100%;
+}
+
+.server-favicon-container {
+    margin-right: 8px;
+    float: left;
+    vertical-align: top;
+}
+
+.server-favicon-container img {
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.server-description-container {
+    text-align: left;
+    width: fit-content;
+}
+
+.server-motd {
+    display: inline-block;
+    font-family: monospace;
+    height: fit-content;
+}
+
+.server-online-counter {
+    float: right;
+    margin-right: 4px;
+}
