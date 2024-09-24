@@ -17,7 +17,7 @@ function copyServerAddress(clickedElement) {
     // Schedule going back
     setTimeout(function() {
         toggleVisibility("tooltip-clicked", "none");
-            toggleVisibility("tooltip-unclicked", "block");
+        toggleVisibility("tooltip-unclicked", "block");
     }.bind(this), 1000);
 }
 
