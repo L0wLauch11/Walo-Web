@@ -12,9 +12,9 @@
     height: 100vh;
     width: var(--documentation-side-nav-width);
     background-color: var(--color-black-alpha25);
-    box-shadow: 0px 5px 5px black;
+    box-shadow: 0 5px 5px black;
     float: left;
-    top: 0px;
+    top: 0;
     margin-right: 16px;
     position: fixed;
     overflow-y: scroll;
@@ -180,7 +180,7 @@ h4::before {
 }
 
 .code-inline {
-    margin-left: 0px;
+    margin-left: 0;
     display: inline-block;
 }
 
@@ -207,9 +207,8 @@ h4::before {
 }
 
 .downloads-table th, .downloads-table td {
-    border: 1px solid;
     padding: 4px 12px;
-    border-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 @media only screen and (max-width: 1000px) {

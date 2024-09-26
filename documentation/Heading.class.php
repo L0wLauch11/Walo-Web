@@ -1,7 +1,7 @@
 <?php
 
 class Heading {
-    public static function generate($headingTag, $text) {
+    public static function generate($headingTag, $text): string {
         $allowedIdChars = 'abcdefghijklmnopqrstuvwxyz';
         $idText = Util::sanitizeText($text, $allowedIdChars);
 

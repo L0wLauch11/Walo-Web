@@ -45,9 +45,7 @@ include "$root/env.php";
         <div class="hr"></div>
 
         <?php
-
-        function create_leaderboard($conn, $sort)
-        {
+        function create_leaderboard($conn, $sort): void {
             // Sort DB by wanted statistic
             $sql = "ALTER TABLE walo ORDER BY $sort DESC";
             $conn->query($sql);
@@ -59,7 +57,7 @@ include "$root/env.php";
             // If entries exist
             if ($result->num_rows > 0) {
                 echo <<<HTML
-                    <table cellspacing='0' cellpadding='0' id='rankings'>
+                    <table style="border-spacing: 0;" id="rankings">
                         <tr class='leaderboard-row'>
                         <th class='leaderboard-column'>Name</th>
                         <th class='leaderboard-column'>Wins</th>
@@ -94,14 +92,14 @@ include "$root/env.php";
                         continue;
                     }
 
-                    echo "
+                    echo <<<HTML
                         <tr $darker>
-                            <td $placement class='leaderboard-stat leftmost'>$name</td>
-                            <td $placement class='leaderboard-stat center'>$wins</td>
-                            <td $placement class='leaderboard-stat center'>$kills</td>
-                            <td $placement class='leaderboard-stat rightmost'>$playcount</td>
+                            <td $placement class="leaderboard-stat leftmost"">$name</td>
+                            <td $placement class="leaderboard-stat center">$wins</td>
+                            <td $placement class="leaderboard-stat center">$kills</td>
+                            <td $placement class="leaderboard-stat rightmost">$playcount</td>
                         </tr>
-                    ";
+                    HTML;
 
                     $i++;
                 }
@@ -110,10 +108,6 @@ include "$root/env.php";
                 echo "<p id='no-data'>Noch keine Einträge</p><br>";
             }
         }
-
-        ?>
-
-        <?php
 
         $ini_array = parse_ini_file("assets/secrets/credentials.ini");
 
@@ -135,13 +129,12 @@ include "$root/env.php";
         } else {
             create_leaderboard($conn, "WINS");
         }
-        
 
         $conn->close();
         ?>
     </div>
 
-    <?php include 'footer.php' ?>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>

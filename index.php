@@ -96,7 +96,7 @@ include "$root/Util.class.php";
                 }
                 ?>
             <?php else: ?>
-                <button id="server-address" onclick="copyServerAddress(this)">
+                <button id="server-address" onclick="copyServerAddress()">
                     <span id="server-address-text"><span style="color: var(--color-text);">Minecraft Serveradresse:</span> <?= Env::MC_SERVER_ADDRESS; ?></span>
                     <img src="assets/icon/icon-copy.png" alt="copy" style="width: 16px;">
                 </button>
@@ -106,7 +106,7 @@ include "$root/Util.class.php";
         </div>
 
         <div class="spacer-big"></div>
-        <div class="seperator"></div>
+        <div class="separator"></div>
 
         <div class="info">
             <ul>
@@ -144,15 +144,13 @@ include "$root/Util.class.php";
             </ul>
 
             <div class="spacer"></div>
-            <div class="seperator"></div>
+            <div class="separator"></div>
+
+            <p class="info-text">Verbotene Items</p>
+            <p class="subtext">Folgende Items sind verboten und es ist <b>NICHT</b> möglich sie herzustellen:</p>
+            <div class="spacer-small"></div>
 
             <ul class="list-forbidden-items">
-                <p class="info-text">Verbotene Items</p>
-                <div class="spacer-small"></div>
-
-                <p class="subtext">Folgende Items sind verboten und es ist <b>NICHT</b> möglich sie herzustellen:</p>
-                <div class="spacer-small"></div>
-
                 <li>
                     <img class="mc-item" src="assets/mc/golden_apple.png" alt="">
                     <span><b>Verzauberter goldener Apfel</b></span>
@@ -185,7 +183,7 @@ include "$root/Util.class.php";
             </div>
         </div>
 
-        <div class="seperator"></div>
+        <div class="separator"></div>
 
         <p class="info-text">Commands</p>
 
@@ -196,14 +194,14 @@ include "$root/Util.class.php";
             </ul>
         </div>
 
-        <div class="seperator"></div>
+        <div class="separator"></div>
 
         <p id="web-source">Website Quellcode: <a
                 href="https://github.com/L0wLauch11/Walo-Web">https://github.com/L0wLauch11/Walo-Web</a></p>
 
     </div>
 
-    <span type="text" id="server-address-input" style="display: none;"><?= Env::MC_SERVER_ADDRESS; ?></span>
+    <span id="server-address-input" style="display: none;"><?= Env::MC_SERVER_ADDRESS; ?></span>
     <script src="js/mc-server-widget.js" defer></script>
 
     <?php include 'footer.php'; ?>

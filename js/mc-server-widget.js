@@ -7,18 +7,18 @@ function toggleVisibility(className, cssDisplay) {
     }
 }
 
-function copyServerAddress(clickedElement) {
+function copyServerAddress() {
     let copyText = document.getElementById("server-address-input");
-    navigator.clipboard.writeText(copyText.textContent);
+    navigator.clipboard.writeText(copyText.textContent).then(r => function (r) {
+        toggleVisibility("tooltip-clicked", "block");
+        toggleVisibility("tooltip-unclicked", "none");
 
-    toggleVisibility("tooltip-clicked", "block");
-    toggleVisibility("tooltip-unclicked", "none");
-
-    // Schedule going back
-    setTimeout(function() {
-        toggleVisibility("tooltip-clicked", "none");
-        toggleVisibility("tooltip-unclicked", "block");
-    }.bind(this), 1000);
+        // Schedule going back
+        setTimeout(function() {
+            toggleVisibility("tooltip-clicked", "none");
+            toggleVisibility("tooltip-unclicked", "block");
+        }.bind(this), 1000);
+    });
 }
 
 document.addEventListener('mousemove', tooltipPosition);

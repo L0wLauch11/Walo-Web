@@ -28,21 +28,21 @@
     border-collapse: collapse;
     border-color: var(--color-black-alpha25);
     border-radius: 4px;
-    border-width: 0px;
+    border-width: 0;
 }
 
 .row-darker .leftmost {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .row-darker .center {
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .row-darker .rightmost {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 #first-place {
@@ -68,11 +68,9 @@
 .sort-by-selector select {
     background-color: var(--color-black-alpha25);
     border: var(--default-border);
-    padding: 0 1em 0 0;
     margin: 0;
     font-family: inherit;
     font-size: 16px;
-    cursor: inherit;
     line-height: inherit;
     border-radius: 4px;
     width: 100px;
@@ -91,7 +89,7 @@
     border: solid;
     border-collapse: collapse;
     border-color: var(--color-black-alpha25);
-    border-width: 0px;
+    border-width: 0;
     color: var(--color-text);
     border-radius: 4px;
     padding: 8px 16px;

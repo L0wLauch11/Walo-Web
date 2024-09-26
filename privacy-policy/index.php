@@ -26,9 +26,7 @@ include "$root/Util.class.php";
     <main class="container privacy-policy-container">
         <?php
         include_once 'parsedown-1.7.4/Parsedown.php';
-
-        $parsedown = new Parsedown();
-        print $parsedown->text(Util::renderPhp('privacy-policy.md.php'));
+        print (new Parsedown())->text(Util::renderPhp('privacy-policy.md.php'));
         ?>
     </main>
 

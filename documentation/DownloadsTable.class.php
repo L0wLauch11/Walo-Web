@@ -3,24 +3,24 @@
 include_once 'DownloadsTableEntry.class.php';
 
 class DownloadsTable {
-    public $entries = [];
+    public array $entries = [];
 
-    public function addEntry($fileUrl) {
+    public function addEntry($fileUrl): static {
         $entry = new DownloadsTableEntry($fileUrl);
-        array_push($this->entries, $entry);
+        $this->entries[] = $entry;
 
         return $this;
     }
 
-    public function addEntries($entries) {
+    public function addEntries($entries): static {
         foreach ($entries as $entry) {
-            array_push($this->entries, $entry);
+            $this->entries[] = $entry;
         }
 
         return $this;
     }
 
-    public function addEntriesFromFolder($folder, $fileExtension) {
+    public function addEntriesFromFolder($folder, $fileExtension): static {
         $files = glob($_SERVER['DOCUMENT_ROOT']."$folder/*.$fileExtension");
 
         usort($files, function($a, $b) {
@@ -32,16 +32,14 @@ class DownloadsTable {
             $fileUrl = "$folder/$filename";
 
             $entry = new DownloadsTableEntry($fileUrl);
-            array_push($this->entries, $entry);
+            $this->entries[] = $entry;
         }
 
         return $this;
     }
 
-    public function render() {
-        $table = '';
-        
-        $table .= <<<HTML
+    public function render(): string {
+        $table = <<<HTML
             <table class="downloads-table">
                 <tr class="row-darker">
                     <th>Datei</th>

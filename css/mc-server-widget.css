@@ -7,25 +7,24 @@
 }
 
 .tooltip {
-    opacity: 0%;
+    opacity: 0;
 
+    border-radius: 0 4px 4px 4px;
     background-color: var(--color-black-alpha25);
     border: var(--default-border);
     border-width: 1px;
     color: #fff;
-    text-align: left;
-    border-radius: 4px;
-    padding: 3px 6px;
     font-size: 14px;
     min-width: fit-content;
     width: fit-content;
+
     display: block;
     position: absolute !important;
     box-sizing: border-box;
-
+    text-align: left;
+    padding: 3px 6px;
     margin-left: 16px;
     margin-top: 16px;
-    border-top-left-radius: 0;
 }
 
 .tooltip-clicked {

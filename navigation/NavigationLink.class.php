@@ -4,7 +4,7 @@ class NavigationLink {
     public static function generate($pageLink, $title, $iconImage = "") {
         $icon = "";
         if ($iconImage != "") {
-            $icon = "<img src='$iconImage'>";
+            $icon = "<img src='$iconImage' alt='Icon'>";
         }
 
         $isCurrent = "";
@@ -13,8 +13,8 @@ class NavigationLink {
         }
 
         return <<<HTML
-            <li class='{$isCurrent}'>
-                <a href='{$pageLink}'>
+            <li class="$isCurrent">
+                <a href="$pageLink">
                     $icon
                     <span class='widescreen-only'>$title</span>
                 </a>
