@@ -58,11 +58,11 @@ include "$root/env.php";
             if ($result->num_rows > 0) {
                 echo <<<HTML
                     <table style="border-spacing: 0;" id="rankings">
-                        <tr class='leaderboard-row'>
-                        <th class='leaderboard-column'>Name</th>
-                        <th class='leaderboard-column'>Wins</th>
-                        <th class='leaderboard-column'>Kills</th>
-                        <th class='leaderboard-column'>Plays</th>
+                        <tr class="leaderboard-row">
+                        <th class="leaderboard-column">Name</th>
+                        <th class="leaderboard-column">Wins</th>
+                        <th class="leaderboard-column">Kills</th>
+                        <th class="leaderboard-column">Plays</th>
                     </tr>
                 HTML;
 
@@ -94,7 +94,7 @@ include "$root/env.php";
 
                     echo <<<HTML
                         <tr $darker>
-                            <td $placement class="leaderboard-stat leftmost"">$name</td>
+                            <td $placement class="leaderboard-stat leftmost">$name</td>
                             <td $placement class="leaderboard-stat center">$wins</td>
                             <td $placement class="leaderboard-stat center">$kills</td>
                             <td $placement class="leaderboard-stat rightmost">$playcount</td>
