@@ -1,10 +1,10 @@
 <?php
 
 class NavigationLink {
-    public static function generate($pageLink, $title, $iconImage = "", $aProperties = "") {
+    public static function generate($pageLink, $title, $iconImage = "") {
         $icon = "";
         if ($iconImage != "") {
-            $icon = "<img src='$iconImage' alt=''>";
+            $icon = "<img src='$iconImage'>";
         }
 
         $isCurrent = "";
@@ -12,13 +12,13 @@ class NavigationLink {
             $isCurrent = 'current-page';
         }
 
-        return "
-            <li class='$isCurrent'>
-                <a href='$pageLink'>
+        return <<<HTML
+            <li class='{$isCurrent}'>
+                <a href='{$pageLink}'>
                     $icon
                     <span class='widescreen-only'>$title</span>
                 </a>
             </li>
-        ";
+        HTML;
     }
 }

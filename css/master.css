@@ -111,13 +111,13 @@ nav ul {
 nav ul li {
     display: inline-block;
     list-style-type: none;
-    margin: 8px 8px;
+    margin: 14px 8px;
     vertical-align: middle;
 }
 
 nav ul li a {
     color: var(--color-text);
-    padding: 8px 8px;
+    padding: 8px;
     text-decoration: none;
     vertical-align: middle;
     transition: 0.3s;
@@ -313,13 +313,17 @@ footer a:hover {
     vertical-align: middle;
 }
 
+.donation-link {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .donation-link a {
     background-color: var(--color-donate);
     color: black;
     font-weight: bold;
     border-radius: 8px;
     display: inline-block;
-    margin: 0;
     padding: 8px 10px 8px 10px !important;
 }
 
@@ -359,8 +363,7 @@ footer a:hover {
 
     header nav ul {
         padding: 0;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 8px;
         width: 100%;
         display: table;
     }
@@ -382,5 +385,10 @@ footer a:hover {
         border-radius: 0;
         border: none;
         box-shadow: 0px 0px 5px black;
+    }
+
+    .donation-link a {
+        margin-top: -4px !important;
+        margin-bottom: -4px !important;
     }
 }
